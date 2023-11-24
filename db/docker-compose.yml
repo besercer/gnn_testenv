@@ -12,7 +12,7 @@ services:
       MYSQL_DATABASE: darpa
     volumes:
       - data:/var/lib/mysql
-      - /Users/robinbuchta/Documents/DARPA/:/output/
+      - C:\\Users\\patri\\Desktop\\DARPA:/output/
     ports:
       - "3306:3306"
 

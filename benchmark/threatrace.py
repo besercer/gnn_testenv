@@ -19,7 +19,7 @@ from torch_geometric.nn import GCNConv, GAE, VGAE
 from torch_geometric.data import Data, InMemoryDataset
 from torch_geometric.data import NeighborSampler, DataLoader
 from torch_geometric.loader import NeighborLoader
-from torch_geometric.nn import SAGEConv, GATConv
+from torch_geometric.nn import SAGEConv, GCNConv, GATv2Conv
 from torch_geometric.utils import add_remaining_self_loops
 from torch_geometric.utils import k_hop_subgraph
 from torch_geometric.utils import to_undirected
@@ -30,7 +30,31 @@ from torch.optim import Optimizer
 
 #Reproducibility
 from torch_geometric import seed_everything
+class GATNet(torch.nn.Module):
+    def __init__(self, in_channels: int, out_channels:int, hidden_layer:int, concat: bool=False):
+        super(GATNet, self).__init__()
+        self.conv1 = GATv2Conv(in_channels, hidden_layer, normalize=False, concat=concat)
+        self.conv2 = GATv2Conv(hidden_layer, out_channels,  normalize=False, concat=concat)
 
+    def forward(self, x, edge_index):
+        x = self.conv1(x, edge_index)
+        x = F.relu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        x = self.conv2(x, edge_index)
+        return F.log_softmax(x, dim=1)
+    
+class GCNNet(torch.nn.Module):
+    def __init__(self, in_channels: int, out_channels:int, hidden_layer:int):
+        super(GCNNet, self).__init__()
+        self.conv1 = GCNConv(in_channels, hidden_layer, normalize=False, bias=True)
+        self.conv2 = GCNConv(hidden_layer, out_channels, normalize=False, bias=True)
+
+    def forward(self, x, edge_index):
+        x = self.conv1(x, edge_index)
+        x = F.relu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        x = self.conv2(x, edge_index)
+        return F.log_softmax(x, dim=1)
 
 class SAGENet(torch.nn.Module):
     """_summary_
@@ -56,7 +80,7 @@ class SAGENet(torch.nn.Module):
 class ThreaTracePipeline():
     # This Class represents a Class, that holds the whole Threatrace Pipeline
     # it contains all the functions and variables needed to run the pipeline
-    def __init__(self, config: configparser.ConfigParser, train_data: Data, test_data: Data):
+    def __init__(self, config: configparser.ConfigParser, train_data: Data, test_data: Data, patricks_log: False):
         """_summary_
             Initializes the Threatrace Pipeline Class 
         Args:
@@ -93,6 +117,20 @@ class ThreaTracePipeline():
             os.makedirs(self.models_dir_path)
         seed_everything(1234)
 
+        if(patricks_log):
+            patricks_log.write_kv_to_file('train_thre', self.train_thre)
+            patricks_log.write_kv_to_file('test_thre', self.test_thre)
+            patricks_log.write_kv_to_file('hop', self.hop)
+            patricks_log.write_kv_to_file('init_epochs', self.init_epochs)
+            patricks_log.write_kv_to_file('submodel_max_epochs', self.submodel_max_epochs)
+            patricks_log.write_kv_to_file('test_cnt_thre', self.test_cnt_thre)
+            patricks_log.write_kv_to_file('hidden_layer', self.hidden_layer)
+            patricks_log.write_to_file('')
+            patricks_log.write_kv_to_file('optimizer', type(self.optimizer).__name__)
+            for key, value in self.optimizer.defaults.items():
+                patricks_log.write_kv_to_file('optimizer_' + key, value)
+            patricks_log.write_div_to_file()
+
     def delete_old_models(self):
         """_summary_
             Deletes all old models in the models directory
@@ -121,8 +159,9 @@ class ThreaTracePipeline():
         #device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') # -> at the moment we use cpu
 
         device = torch.device('cpu')
-        #train_net = SAGENet
-        train_net = SAGENet 
+        #train_net = GCNNet 
+        train_net = SAGENet
+        #train_net = GATNet
         train_feature_num = data.x.shape[1]
         train_label_num = len(data.y.unique())
         train_model = train_net(train_feature_num, train_label_num, self.hidden_layer).to(device)
@@ -277,7 +316,7 @@ class ThreaTracePipeline():
         """
         for i in range(len(s)):
             print (str(s[i]) + ' ', end = '')
-        print (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
+        print ('Time:'+ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
 
     def pretraining(self):
         """_summary_
@@ -293,7 +332,14 @@ class ThreaTracePipeline():
             # writer.add_scalars('acc train', {"acc"+str(loop_num): acc}, epoch) # new line
             # writer.add_scalars('loss train', {"loss"+str(loop_num): loss}, epoch)   # new line
 
-            self.show(epoch, loss, acc)
+            self.show('Epoche: '+ str(epoch),'Loss: '+ str(loss), 'Accuracy: '+ str(acc))
+
+        false_classified = []
+        true_classified = []
+        acc, false_classified, true_classified = self.final_test(self.train_model, self.train_loader, self.train_data, false_classified, true_classified)
+        print("false_classified, true_classified")
+        print(len(false_classified),len(true_classified)) 
+        self.show('First Model saved (0)')
     
     def multi_model_training(self):
         """_summary_
@@ -402,7 +448,7 @@ class ThreaTracePipeline():
             if not osp.exists(model_path): 
                 loop_num += 1
                 continue
-            self.test_model.load_state_dict(torch.load(model_path))
+            self.test_model.load_state_dict(torch.load(model_path), strict=False)#
             false_classified = []	
             true_classified = [] 
             test_acc, false_classified, true_classified = self.final_test(self.test_model, self.test_loader, self.test_data, false_classified, true_classified)
@@ -412,8 +458,9 @@ class ThreaTracePipeline():
                 self.test_data.test_mask[i] = False
             if test_acc == 1: break
             loop_num += 1
-        print(f"Unique Count of data_flow.y:  {self.test_data.y.unique(return_counts=True)}")
-        print(f"Unique Count of pred: {self.test_data.test_mask.unique(return_counts=True)}")
+        
+        #print(f"Unique Count of data_flow.y:  {self.test_data.y.unique(return_counts=True)}")
+        #print(f"Unique Count of pred: {self.test_data.test_mask.unique(return_counts=True)}")
             # 51 vs 57 features problems
 
     def get_detection_insights(self) -> torch.Tensor:
@@ -535,7 +582,6 @@ class ThreaTracePipeline():
                 #f_fn.write(str(count) + "\n")
             count = count +1
         print(count)
-        print(tp,fp,tn,fn)
         print("TP: {tp}, FP: {fp}, TN: {tn}, FN: {fn}".format(tp = tp, fp = fp, tn = tn, fn = fn))
         precision = tp/(tp+fp+eps)
         recall = tp/(tp+fn+eps)
