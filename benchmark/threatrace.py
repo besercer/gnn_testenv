@@ -8,6 +8,7 @@
 import os.path as osp
 import os
 import argparse
+from patricks_modul import PatricksLog
 import torch
 import time
 import torch.nn.functional as F
@@ -80,7 +81,7 @@ class SAGENet(torch.nn.Module):
 class ThreaTracePipeline():
     # This Class represents a Class, that holds the whole Threatrace Pipeline
     # it contains all the functions and variables needed to run the pipeline
-    def __init__(self, config: configparser.ConfigParser, train_data: Data, test_data: Data, patricks_log: False):
+    def __init__(self, config: configparser.ConfigParser, train_data: Data, test_data: Data, patricks_log: PatricksLog):
         """_summary_
             Initializes the Threatrace Pipeline Class 
         Args:
@@ -88,6 +89,7 @@ class ThreaTracePipeline():
             train_data (_type_): _description_
             test_data (_type_): _description_
         """
+        self.patricks_log = patricks_log
         self.config = config
         self.train_data = train_data
         self.test_data = test_data
@@ -117,19 +119,21 @@ class ThreaTracePipeline():
             os.makedirs(self.models_dir_path)
         seed_everything(1234)
 
-        if(patricks_log):
-            patricks_log.write_kv_to_file('train_thre', self.train_thre)
-            patricks_log.write_kv_to_file('test_thre', self.test_thre)
-            patricks_log.write_kv_to_file('hop', self.hop)
-            patricks_log.write_kv_to_file('init_epochs', self.init_epochs)
-            patricks_log.write_kv_to_file('submodel_max_epochs', self.submodel_max_epochs)
-            patricks_log.write_kv_to_file('test_cnt_thre', self.test_cnt_thre)
-            patricks_log.write_kv_to_file('hidden_layer', self.hidden_layer)
-            patricks_log.write_to_file('')
-            patricks_log.write_kv_to_file('optimizer', type(self.optimizer).__name__)
+        if(self.patricks_log):
+            self.patricks_log.write_kv_to_file('train_thre', self.train_thre)
+            self.patricks_log.write_kv_to_file('test_thre', self.test_thre)
+            self.patricks_log.write_kv_to_file('hop', self.hop)
+            self.patricks_log.write_kv_to_file('init_epochs', self.init_epochs)
+            self.patricks_log.write_kv_to_file('submodel_max_epochs', self.submodel_max_epochs)
+            self.patricks_log.write_kv_to_file('test_cnt_thre', self.test_cnt_thre)
+            self.patricks_log.write_kv_to_file('hidden_layer', self.hidden_layer)
+            self.patricks_log.write_kv_to_file('train_model', type(self.train_model).__name__)
+            self.patricks_log.write_kv_to_file('test_model', type(self.test_model).__name__)
+            self.patricks_log.write_to_file('')
+            self.patricks_log.write_kv_to_file('optimizer', type(self.optimizer).__name__)
             for key, value in self.optimizer.defaults.items():
-                patricks_log.write_kv_to_file('optimizer_' + key, value)
-            patricks_log.write_div_to_file()
+                self.patricks_log.write_kv_to_file('optimizer_' + key, value)
+            self.patricks_log.write_div_to_file()
 
     def delete_old_models(self):
         """_summary_
@@ -147,7 +151,7 @@ class ThreaTracePipeline():
             if item.startswith("fp_"):
                 os.remove(os.path.join(self.models_dir_path, item))
 
-    def create_model(self, data: Data) -> SAGENet:
+    def create_model(self, data: Data) -> torch.nn.Module:
         """_summary_
             Creates a new SAGENet Model
         Args:
@@ -333,13 +337,16 @@ class ThreaTracePipeline():
             # writer.add_scalars('loss train', {"loss"+str(loop_num): loss}, epoch)   # new line
 
             self.show('Epoche: '+ str(epoch),'Loss: '+ str(loss), 'Accuracy: '+ str(acc))
+            self.patricks_log.write_to_file('Epoche: '+ str(epoch) + ' Loss: '+ str(loss) + ' Accuracy: '+ str(acc))
 
         false_classified = []
         true_classified = []
         acc, false_classified, true_classified = self.final_test(self.train_model, self.train_loader, self.train_data, false_classified, true_classified)
         print("false_classified, true_classified")
         print(len(false_classified),len(true_classified)) 
-        self.show('First Model saved (0)')
+
+        self.patricks_log.write_kv_to_file("false_classified", str(len(false_classified)))
+        self.patricks_log.write_kv_to_file("true_classified", str(len(true_classified)))
     
     def multi_model_training(self):
         """_summary_
@@ -352,12 +359,17 @@ class ThreaTracePipeline():
         Args:
             self (Self): _description_
         """
+        self.patricks_log.write_to_file('Model - false_classified - true_classified')
         while (1): # stops if 3 models have 0 true classified, or if acc = 1 
             print("New Round")
             false_classified = []
             true_classified = []
             bad_cnt = 0
             acc, false_classified, true_classified = self.final_test(self.train_model, self.train_loader, self.train_data, false_classified, true_classified)
+            
+            self.patricks_log.write_to_file(str(self.loop_num) + ') ' + str(len(false_classified)) + ' ' + str(len(true_classified)))
+            print('falseClassified')
+            print(false_classified)
             #tensorboard:
             
             # writer.add_scalar('false_classified train', len(false_classified), loop_num)   # new line
@@ -377,6 +389,8 @@ class ThreaTracePipeline():
                 fw = open(self.models_dir_path + 'fp_feature_label_'+str(self.loop_num)+'.txt', 'w')
                 x_list = self.train_data.x[false_classified]
                 y_list = self.train_data.y[false_classified]
+                print('- false classified Verteilung', np.bincount(y_list))
+                self.patricks_log.write_kv_to_file('  false Verteilung', str(np.bincount(y_list)))
 
                 if len(x_list) >1:
                     sorted_index = np.argsort(y_list, axis = 0)
@@ -393,6 +407,8 @@ class ThreaTracePipeline():
                 fw = open(self.models_dir_path + 'tn_feature_label_'+str(self.loop_num)+'.txt', 'w')
                 x_list = self.train_data.x[true_classified]
                 y_list = self.train_data.y[true_classified]
+                print('- true classified Verteilung', np.bincount(y_list))
+                self.patricks_log.write_kv_to_file('  true Verteilung', str(np.bincount(y_list)))
 
                 if len(x_list) >1:
                     sorted_index = np.argsort(y_list, axis = 0)
@@ -408,6 +424,10 @@ class ThreaTracePipeline():
 
                 torch.save(self.train_model.state_dict(), self.models_dir_path + 'model_'+str(self.loop_num))
                 self.show('Model saved loop_num: ' + str(self.loop_num))
+                print('')
+
+                #print(self.train_model.state_dict().keys())
+                self.patricks_log.save_model('model_' + str(self.loop_num), self.train_model.state_dict())
                 # break #use this break for "single model" setup
 
             self.train_loader = self.create_neighborloader(self.train_data, shuffle=self.shuffle, num_neighbor=self.num_neighbor, hop=self.hop, b_size=self.b_train_size, input_nodes=self.train_data.train_mask)
@@ -424,9 +444,12 @@ class ThreaTracePipeline():
                 #show(epoch, loss, acc)
                 if loss < 1: break
             if acc == 1: break 
+        
+        self.patricks_log.get_total_model_size()
+        
     show('Finish training graph')
 
-    def test_model_performance(self, max_runs: int=100):
+    def test_model_performance(self, gt: List[int], max_runs: int=100):
         # todo: this loop has to be optimized, it still based on the original code
         """_summary_
             Tests the model performance on the test data
@@ -441,9 +464,11 @@ class ThreaTracePipeline():
         """
             #runime 8min
         loop_num = 0
-        
         while(1):
             if loop_num > max_runs: break
+            #if loop_num == 1:
+            #    model_path = self.models_dir_path+ 'model_'+str(loop_num-1)
+            #else:
             model_path = self.models_dir_path+ 'model_'+str(loop_num)
             if not osp.exists(model_path): 
                 loop_num += 1
@@ -453,15 +478,94 @@ class ThreaTracePipeline():
             true_classified = [] 
             test_acc, false_classified, true_classified = self.final_test(self.test_model, self.test_loader, self.test_data, false_classified, true_classified)
             #writer.add_scalar('acc test', acc, loop_num)   # new line
-            print("Loop_num: " + str(loop_num) + '  Accuracy:{:.4f}'.format(test_acc) + '  true_classified:' + str(len(true_classified))+ '  false_classified:' + str(len(false_classified)))
+
+            print("Model_num: " + str(loop_num) + '  Accuracy:{:.4f}'.format(test_acc) + '  false_classified:' + str(len(false_classified)) + '  true_classified:' + str(len(true_classified)))
+            self.patricks_log.write_to_file("Model_num: " + str(loop_num) + '  Accuracy:{:.4f}'.format(test_acc) + '  false_classified:' + str(len(false_classified)) + '  true_classified:' + str(len(true_classified)))
+            
+            y_list = self.test_data.y[false_classified]
+            print('- false classified Verteilung', np.bincount(y_list))
+            self.patricks_log.write_kv_to_file('  false classified Verteilung', str(np.bincount(y_list)))
+            y_list = self.test_data.y[true_classified]
+            print('- true classified Verteilung', np.bincount(y_list))
+            self.patricks_log.write_kv_to_file('  true classified Verteilung', str(np.bincount(y_list)))
+
             for i in true_classified:
                 self.test_data.test_mask[i] = False
             if test_acc == 1: break
             loop_num += 1
-        
-        #print(f"Unique Count of data_flow.y:  {self.test_data.y.unique(return_counts=True)}")
-        #print(f"Unique Count of pred: {self.test_data.test_mask.unique(return_counts=True)}")
+            
+            print(f"Unique Count of pred: {self.test_data.test_mask.unique(return_counts=True)}")
+            self.patricks_log.write_kv_to_file('  Unique Count of pred', str(self.test_data.test_mask.unique(return_counts=True)))
+
+            flag =0
+            eps = 1e-10
+            eval_len = len(self.test_data.x)
+            ans = np.full(eval_len, 'tn') # first: every node is a True Negative 
+            unique_values, counts = np.unique(ans, return_counts=True)
+            print(str(dict(zip(unique_values, counts))))
+            self.patricks_log.write_to_file('  ' + str(dict(zip(unique_values, counts))))
+            #breakpoint()
+            print("set every node in gt to fn")
+            for idx in gt:
+                if idx < eval_len:
+                    ans[idx] = 'fn'
+            #ans[gt] = 'fn' # second: every node in the ground truth is a False Negative        print("gt")
+            unique_values, counts = np.unique(ans, return_counts=True)
+            print(str(dict(zip(unique_values, counts))))
+            self.patricks_log.write_to_file('  ' + str(dict(zip(unique_values, counts))))
+            hits = self.test_data.test_mask
+            hit_indexes = torch.nonzero(hits).squeeze().tolist()
+            for index, element in tqdm(enumerate(hit_indexes), total=len(hit_indexes)):
+                if element:
+                    if element in gt: # if hit node is in ground truth (direct hit)
+                        if index < len(ans):
+                            ans[element] = 'tp'
+                        else:
+                            print("index out of bounds")
+                            print(index)
+                        flag = 1
+                    else:
+                        if flag == 0: # wenn kein direkter oder indirekter hit
+                            if element < len(ans):
+                                ans[element] = 'fp'
+                            else:
+                                print("index out of bounds")
+                                print(element)
+            unique_values, counts = np.unique(ans, return_counts=True)
+            print(str(dict(zip(unique_values, counts))))
+            self.patricks_log.write_to_file('  ' + str(dict(zip(unique_values, counts))))
+            tn = 0
+            tp = 0
+            fn = 0
+            fp = 0
+            count = 0
+            for i in ans:
+                if i == 'tp': tp += 1
+                if i == 'tn': tn += 1
+                if i == 'fp': 
+                    fp += 1
+                if i == 'fn': 
+                    fn += 1
+                    #f_fn.write(str(count) + "\n")
+                count = count +1
             # 51 vs 57 features problems
+            precision = tp/(tp+fp+eps)
+            recall = tp/(tp+fn+eps)
+            fscore = 2*precision*recall/(precision+recall+eps)
+            accuracy = (tp + tn) / (tp + tn + fp + fn)
+            print('Precision: ', precision)
+            print('Recall: ', recall)
+            print('F-Score: ', fscore)
+            print('Accuracy: ', accuracy)
+            self.patricks_log.write_kv_to_file('  Precision', precision)
+            self.patricks_log.write_kv_to_file('  Recall', recall)
+            self.patricks_log.write_kv_to_file('  F-Score', fscore)
+            self.patricks_log.write_kv_to_file('  Accuracy', accuracy)
+            
+            print('')
+            self.patricks_log.write_to_file('  ')
+        print(f"Unique Count of data_flow.y:  {self.test_data.y.unique(return_counts=True)}")
+        self.patricks_log.write_kv_to_file('Unique Count of data_flow.y', str(self.test_data.y.unique(return_counts=True)))
 
     def get_detection_insights(self) -> torch.Tensor:
         """
@@ -480,7 +584,7 @@ class ThreaTracePipeline():
         print(f"Unique Count of filtered_tensor: {filtered_tensor.unique(return_counts=True)}")
         return filtered_tensor
 
-    def evaluation(self, gt: List[int]):
+    def evaluation(self, gt: List[int], hop=2):
         """_summary_
             Evaluates the model performance on the test data
             The evaluation is done by comparing the test_data.test_mask with the ground truth
@@ -512,11 +616,13 @@ class ThreaTracePipeline():
         eval_len = len(self.test_data.x)
         ans = np.full(eval_len, 'tn') # first: every node is a True Negative 
         unique_values, counts = np.unique(ans, return_counts=True)
-        print(dict(zip(unique_values, counts)))
         print("start")
+        self.patricks_log.write_to_file('Start')
         print(dict(zip(unique_values, counts)))
+        self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
         #breakpoint()
         print("set every node in gt to fn")
+        self.patricks_log.write_to_file("set every node in gt to fn")
 
         #ans = ['fn' if idx < eval_len else continue for idx in gt]
         for idx in gt:
@@ -525,10 +631,12 @@ class ThreaTracePipeline():
         #ans = ['fn' for idx in gt if idx < eval_len]
         unique_values, counts = np.unique(ans, return_counts=True)
         print(dict(zip(unique_values, counts)))
+        self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
         #ans[gt] = 'fn' # second: every node in the ground truth is a False Negative
-        print("gt")
-        unique_values, counts = np.unique(ans, return_counts=True)
-        print(dict(zip(unique_values, counts)))
+        #print("gt")
+        #unique_values, counts = np.unique(ans, return_counts=True)
+        #print(dict(zip(unique_values, counts)))
+        #self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
 
         hits = self.test_data.test_mask
         hit_indexes = torch.nonzero(hits).squeeze().tolist()
@@ -536,7 +644,7 @@ class ThreaTracePipeline():
         for element in tqdm(hit_indexes, total=len(hit_indexes)):
             if element:
                 i_as_list = [element]
-                hit_neighbors, edge_index, mapping, edge_mask = k_hop_subgraph(i_as_list, num_hops=2, edge_index=self.test_data_undirected_edge_index) # get neighbors of hit node
+                hit_neighbors, edge_index, mapping, edge_mask = k_hop_subgraph(i_as_list, num_hops=hop, edge_index=self.test_data_undirected_edge_index) # get neighbors of hit node
                 intersection = list(set(gt) & set(hit_neighbors.tolist())) #-> performanze boost! 
                 if intersection != []:
                     intersection_counter += 1
@@ -564,7 +672,9 @@ class ThreaTracePipeline():
                         
         unique_values, counts = np.unique(ans, return_counts=True)
         print(dict(zip(unique_values, counts)))
-        print(f"Intersection Counter: {intersection_counter}")
+        self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
+        #self.patricks_log.write_kv_to_file('intersection counter', intersection_counter)
+        #print(f"Intersection Counter: {intersection_counter}")
 
 
         tn = 0
@@ -581,8 +691,9 @@ class ThreaTracePipeline():
                 fn += 1
                 #f_fn.write(str(count) + "\n")
             count = count +1
-        print(count)
+        #print(count)
         print("TP: {tp}, FP: {fp}, TN: {tn}, FN: {fn}".format(tp = tp, fp = fp, tn = tn, fn = fn))
+        self.patricks_log.write_to_file("TP: {tp}, FP: {fp}, TN: {tn}, FN: {fn}".format(tp = tp, fp = fp, tn = tn, fn = fn))
         precision = tp/(tp+fp+eps)
         recall = tp/(tp+fn+eps)
         fscore = 2*precision*recall/(precision+recall+eps)
@@ -594,6 +705,10 @@ class ThreaTracePipeline():
         print('Recall: ', recall)
         print('F-Score: ', fscore)
         print("Accuracy: ", accuracy)
+        self.patricks_log.write_kv_to_file('Precision', precision)
+        self.patricks_log.write_kv_to_file('Recall', recall)
+        self.patricks_log.write_kv_to_file('F-Score', fscore)
+        self.patricks_log.write_kv_to_file('Accuracy', accuracy)
 
         return hit_indexes
         # geschönt und fertig :D 
@@ -622,16 +737,19 @@ class ThreaTracePipeline():
         ans = np.full(eval_len, 'tn') # first: every node is a True Negative 
         unique_values, counts = np.unique(ans, return_counts=True)
         print("start")
+        self.patricks_log.write_to_file('Start')
         print(dict(zip(unique_values, counts)))
+        self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
         #breakpoint()
         print("set every node in gt to fn")
+        self.patricks_log.write_to_file("set every node in gt to fn")
         for idx in gt:
             if idx < eval_len:
                 ans[idx] = 'fn'
         #ans[gt] = 'fn' # second: every node in the ground truth is a False Negative        print("gt")
         unique_values, counts = np.unique(ans, return_counts=True)
         print(dict(zip(unique_values, counts)))
-
+        self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
         hits = self.test_data.test_mask
         hit_indexes = torch.nonzero(hits).squeeze().tolist()
         for index, element in tqdm(enumerate(hit_indexes), total=len(hit_indexes)):
@@ -660,7 +778,7 @@ class ThreaTracePipeline():
                             print(element)
         unique_values, counts = np.unique(ans, return_counts=True)
         print(dict(zip(unique_values, counts)))
-
+        self.patricks_log.write_to_file(str(dict(zip(unique_values, counts))))
 
         tn = 0
         tp = 0
@@ -676,9 +794,10 @@ class ThreaTracePipeline():
                 fn += 1
                 #f_fn.write(str(count) + "\n")
             count = count +1
-        print(count)
-        print(tp,fp,tn,fn)
+        #print(count)
+        #print(tp,fp,tn,fn)
         print("TP: {tp}, FP: {fp}, TN: {tn}, FN: {fn}".format(tp = tp, fp = fp, tn = tn, fn = fn))
+        self.patricks_log.write_to_file("TP: {tp}, FP: {fp}, TN: {tn}, FN: {fn}".format(tp = tp, fp = fp, tn = tn, fn = fn))
         precision = tp/(tp+fp+eps)
         recall = tp/(tp+fn+eps)
         fscore = 2*precision*recall/(precision+recall+eps)
@@ -689,7 +808,11 @@ class ThreaTracePipeline():
         print('Precision: ', precision)
         print('Recall: ', recall)
         print('F-Score: ', fscore)
-        print("Accuracy: ", accuracy)
+        print('Accuracy: ', accuracy)
+        self.patricks_log.write_kv_to_file('Precision', precision)
+        self.patricks_log.write_kv_to_file('Recall', recall)
+        self.patricks_log.write_kv_to_file('F-Score', fscore)
+        self.patricks_log.write_kv_to_file('Accuracy', accuracy)
         return hit_indexes
 
     def reinit_test_data(self):
