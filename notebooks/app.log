@@ -7668,3 +7668,447 @@
 2023-12-07 19:59:12,294 - INFO - Establishing connection
 2023-12-07 19:59:12,325 - INFO - Connection established
 2023-12-07 19:59:12,325 - INFO - Table exists. Skipping function.
+2023-12-07 20:16:01,433 - INFO - This will get logged to a file
+2023-12-07 20:16:02,116 - INFO - Files exists. Skipping function.
+2023-12-07 20:16:02,299 - INFO - Establishing connection
+2023-12-07 20:16:02,324 - INFO - Connection established
+2023-12-07 20:16:02,324 - INFO - Table exists. Skipping function.
+2023-12-07 20:16:03,065 - INFO - get_atk_nodes_for_evaluation:
+2023-12-07 20:16:03,065 - INFO - get_atk_nodes_with_multiple_gts
+2023-12-07 20:16:03,098 - INFO - get_atk_nodes_from_yaml:
+2023-12-07 20:16:03,098 - INFO - Scan edges
+2023-12-07 20:16:03,098 - INFO - Parsing DARPA GT to UNIX NS
+2023-12-07 20:16:03,098 - INFO - Parsing DARPA Hour Min Timestamp String
+2023-12-07 20:16:03,098 - INFO - Parsing Timestamp String
+2023-12-07 20:16:03,098 - INFO - Parsing EST
+2023-12-07 20:16:03,098 - INFO - Converting datetime to DARPA UNIX
+2023-12-07 20:16:03,098 - INFO - Timestamp: 2018-04-12 19:58:00
+2023-12-07 20:16:03,098 - INFO - Parsed DARPA GT date: 20180412 and time: 14:00 to UNIX NS: 1.52355588e+18
+2023-12-07 20:16:03,098 - INFO - Parsing DARPA GT to UNIX NS
+2023-12-07 20:16:03,098 - INFO - Parsing DARPA Hour Min Timestamp String
+2023-12-07 20:16:03,098 - INFO - Parsing Timestamp String
+2023-12-07 20:16:03,098 - INFO - Parsing EST
+2023-12-07 20:16:03,098 - INFO - Converting datetime to DARPA UNIX
+2023-12-07 20:16:03,098 - INFO - Timestamp: 2018-04-12 20:40:00
+2023-12-07 20:16:03,098 - INFO - Parsed DARPA GT date: 20180412 and time: 14:38 to UNIX NS: 1.5235584e+18
+2023-12-07 20:16:03,098 - INFO - Establishing connection
+2023-12-07 20:16:03,115 - INFO - Connection established
+2023-12-07 20:16:49,194 - INFO - 45305
+2023-12-07 20:16:49,210 - INFO - Length of node_set: 13240
+2023-12-07 20:16:49,210 - INFO - Scan nodes
+2023-12-07 20:16:49,210 - INFO - scan_nodes:
+2023-12-07 20:16:49,210 - INFO - Establishing connection
+2023-12-07 20:16:49,210 - INFO - Connection established
+2023-12-07 20:16:49,226 - INFO - search_terms: ['shell', 'tmux-1002', '/tmp/test', 'micro', 'scans', '25.159.96.207', '128.55.12.167', '76.56.184.25', '155.162.39.48', '198.115.236.119', '53.158.101.118', '98.15.44.232', '192.113.144.28', 'webserver', 'shellcode_server', 'loaderDrakon', 'libdrakon', 'drakon', 'sendmail', 'vUGefai', './deploy/archive/microapt.freebsd.x64_98.15.44.232', './deploy/archive/libdrakon.freebsd.x64.so_198.115.236.119', '/tmp/font', 'font', './deploy/archive/drakon.freebsd.x64_53.158.101.118', 'XIM', 'netlog', 'main', 'test', '/tmp/tmux-1002', '/tmp/minions', '/tmp/font', '/tmo/XIM', '/var/log/netlog', '/var/log/sendmail', '/tmp/main', '/tmp/test', '128.55.12.67', '128.55.12.141', '128.55.12.110', '128.55.12.118', '128.55.12.10', '128.55.12.1', '128.55.12.55']
+2023-12-07 20:16:49,227 - INFO - columns: ['id', 'subject_cid', 'fileobject', 'netflowobject', 'netflowobject_uuid', 'subject_exportedlibraries', 'subject_cmdline', 'subject_starttimestampnanos', 'netflowobject_localport', 'fileobject_baseobject_hostid', 'host', 'principal', 'host_hostname', 'host_interfaces', 'host_interfaces_macaddress', 'srcsinkobject_filedescriptor', 'netflowobject_remoteaddress', 'subject_privilegelevel', 'subject_parentsubject_com_bbn_tc_schema_avro_cdm18_uuid', 'unnamedpipeobject_sinkuuid', 'fileobject_type', 'fileobject_baseobject_properties_map', 'subject', 'srcsinkobject_baseobject', 'unnamedpipeobject_baseobject', 'unnamedpipeobject_baseobject_properties', 'fileobject_filedescriptor', 'netflowobject_baseobject_properties', 'host_hosttype', 'srcsinkobject_type', 'principal_userid', 'subject_properties', 'unnamedpipeobject_sinkuuid_com_bbn_tc_schema_avro_cdm18_uuid', 'fileobject_baseobject_permission', 'netflowobject_baseobject', 'subject_iteration', 'principal_properties', 'srcsinkobject', 'host_interfaces_ipaddresses', 'subject_parentsubject', 'srcsinkobject_baseobject_properties_map', 'unnamedpipeobject', 'host_hostidentifiers', 'principal_username', 'netflowobject_filedescriptor', 'netflowobject_baseobject_properties_map', 'fileobject_baseobject_properties', 'srcsinkobject_baseobject_hostid', 'srcsinkobject_baseobject_epoch', 'subject_count', 'unnamedpipeobject_baseobject_hostid', 'datum', 'netflowobject_baseobject_epoch', 'subject_type', 'host_osdetails', 'fileobject_size', 'netflowobject_baseobject_hostid', 'principal_uuid', 'unnamedpipeobject_baseobject_permission', 'fileobject_localprincipal', 'unnamedpipeobject_uuid', 'unnamedpipeobject_sourceuuid', 'netflowobject_baseobject_permission', 'source', 'fileobject_baseobject_epoch', 'cdmversion', 'principal_hostid', 'subject_importedlibraries', 'netflowobject_ipprotocol', 'fileobject_hashes', 'principal_groupids', 'subject_hostid', 'netflowobject_localaddress', 'fileobject_baseobject', 'principal_type', 'subject_localprincipal', 'fileobject_peinfo', 'subject_properties_map', 'fileobject_uuid', 'unnamedpipeobject_sourcefiledescriptor', 'principal_properties_map', 'unnamedpipeobject_baseobject_epoch', 'principal_username_string', 'subject_uuid', 'srcsinkobject_baseobject_properties', 'unnamedpipeobject_sourceuuid_com_bbn_tc_schema_avro_cdm18_uuid', 'subject_properties_map_host', 'unnamedpipeobject_sinkfiledescriptor', 'subject_unitid', 'host_interfaces_name', 'host_uuid', 'srcsinkobject_uuid', 'unnamedpipeobject_baseobject_properties_map', 'netflowobject_remoteport', 'srcsinkobject_baseobject_permission', 'node_type', 'collected_uuid', 'uuid_numeration', 'end_column', 'subtypes', 'whole_type']
+2023-12-07 20:20:21,055 - INFO - results length: 19813
+2023-12-07 20:20:21,060 - INFO - Length of node_set: 32822
+2023-12-07 20:20:21,062 - INFO - 32822
+2023-12-07 20:20:21,074 - INFO - get_atk_nodes_from_yaml:
+2023-12-07 20:20:21,074 - INFO - Scan edges
+2023-12-07 20:20:21,074 - INFO - Parsing DARPA GT to UNIX NS
+2023-12-07 20:20:21,074 - INFO - Parsing DARPA Hour Min Timestamp String
+2023-12-07 20:20:21,074 - INFO - Parsing Timestamp String
+2023-12-07 20:20:21,074 - INFO - Parsing EST
+2023-12-07 20:20:21,074 - INFO - Converting datetime to DARPA UNIX
+2023-12-07 20:20:21,074 - INFO - Timestamp: 2018-04-13 15:02:00
+2023-12-07 20:20:21,074 - INFO - Parsed DARPA GT date: 20180413 and time: 09:04 to UNIX NS: 1.52362452e+18
+2023-12-07 20:20:21,074 - INFO - Parsing DARPA GT to UNIX NS
+2023-12-07 20:20:21,074 - INFO - Parsing DARPA Hour Min Timestamp String
+2023-12-07 20:20:21,074 - INFO - Parsing Timestamp String
+2023-12-07 20:20:21,074 - INFO - Parsing EST
+2023-12-07 20:20:21,074 - INFO - Converting datetime to DARPA UNIX
+2023-12-07 20:20:21,074 - INFO - Timestamp: 2018-04-13 15:17:00
+2023-12-07 20:20:21,074 - INFO - Parsed DARPA GT date: 20180413 and time: 09:15 to UNIX NS: 1.52362542e+18
+2023-12-07 20:20:21,074 - INFO - Establishing connection
+2023-12-07 20:20:21,086 - INFO - Connection established
+2023-12-07 20:20:27,300 - INFO - 9126
+2023-12-07 20:20:27,303 - INFO - Length of node_set: 267
+2023-12-07 20:20:27,303 - INFO - Scan nodes
+2023-12-07 20:20:27,303 - INFO - scan_nodes:
+2023-12-07 20:20:27,303 - INFO - Establishing connection
+2023-12-07 20:20:27,311 - INFO - Connection established
+2023-12-07 20:20:27,312 - INFO - search_terms: ['reconnect', 'whoami', 'nc -s', 'shell', './deploy/archive/drakon.freebsd.x64_53.158.101.118', 'pEja72mA', './deploy/archive/libdrakon.freebsd.x64.so_198.115.236.119', 'eWq10bVcx', 'elevate', '20691', '/usr/sbin/sshd', 'inject', 'crash', '25.159.96.207', '128.55.12.73', '128.55.12.167', '76.56.184.25', '155.162.39.48', '98.115.236.119', '53.158.101.118', 'memhelp.so', 'eraseme', 'done.so', '78.205.235.65', 'nginx', 'sshd', '/etc/group', '/etc/passwd', '/dec/gtx_dsa_675']
+2023-12-07 20:20:27,314 - INFO - columns: ['id', 'subject_cid', 'fileobject', 'netflowobject', 'netflowobject_uuid', 'subject_exportedlibraries', 'subject_cmdline', 'subject_starttimestampnanos', 'netflowobject_localport', 'fileobject_baseobject_hostid', 'host', 'principal', 'host_hostname', 'host_interfaces', 'host_interfaces_macaddress', 'srcsinkobject_filedescriptor', 'netflowobject_remoteaddress', 'subject_privilegelevel', 'subject_parentsubject_com_bbn_tc_schema_avro_cdm18_uuid', 'unnamedpipeobject_sinkuuid', 'fileobject_type', 'fileobject_baseobject_properties_map', 'subject', 'srcsinkobject_baseobject', 'unnamedpipeobject_baseobject', 'unnamedpipeobject_baseobject_properties', 'fileobject_filedescriptor', 'netflowobject_baseobject_properties', 'host_hosttype', 'srcsinkobject_type', 'principal_userid', 'subject_properties', 'unnamedpipeobject_sinkuuid_com_bbn_tc_schema_avro_cdm18_uuid', 'fileobject_baseobject_permission', 'netflowobject_baseobject', 'subject_iteration', 'principal_properties', 'srcsinkobject', 'host_interfaces_ipaddresses', 'subject_parentsubject', 'srcsinkobject_baseobject_properties_map', 'unnamedpipeobject', 'host_hostidentifiers', 'principal_username', 'netflowobject_filedescriptor', 'netflowobject_baseobject_properties_map', 'fileobject_baseobject_properties', 'srcsinkobject_baseobject_hostid', 'srcsinkobject_baseobject_epoch', 'subject_count', 'unnamedpipeobject_baseobject_hostid', 'datum', 'netflowobject_baseobject_epoch', 'subject_type', 'host_osdetails', 'fileobject_size', 'netflowobject_baseobject_hostid', 'principal_uuid', 'unnamedpipeobject_baseobject_permission', 'fileobject_localprincipal', 'unnamedpipeobject_uuid', 'unnamedpipeobject_sourceuuid', 'netflowobject_baseobject_permission', 'source', 'fileobject_baseobject_epoch', 'cdmversion', 'principal_hostid', 'subject_importedlibraries', 'netflowobject_ipprotocol', 'fileobject_hashes', 'principal_groupids', 'subject_hostid', 'netflowobject_localaddress', 'fileobject_baseobject', 'principal_type', 'subject_localprincipal', 'fileobject_peinfo', 'subject_properties_map', 'fileobject_uuid', 'unnamedpipeobject_sourcefiledescriptor', 'principal_properties_map', 'unnamedpipeobject_baseobject_epoch', 'principal_username_string', 'subject_uuid', 'srcsinkobject_baseobject_properties', 'unnamedpipeobject_sourceuuid_com_bbn_tc_schema_avro_cdm18_uuid', 'subject_properties_map_host', 'unnamedpipeobject_sinkfiledescriptor', 'subject_unitid', 'host_interfaces_name', 'host_uuid', 'srcsinkobject_uuid', 'unnamedpipeobject_baseobject_properties_map', 'netflowobject_remoteport', 'srcsinkobject_baseobject_permission', 'node_type', 'collected_uuid', 'uuid_numeration', 'end_column', 'subtypes', 'whole_type']
+2023-12-07 20:22:38,493 - INFO - results length: 12901
+2023-12-07 20:22:38,507 - INFO - Length of node_set: 13156
+2023-12-07 20:22:38,507 - INFO - 13156
+2023-12-07 20:22:38,507 - INFO - atk_nodes: 34481
+2023-12-07 20:22:38,523 - INFO - Establishing connection
+2023-12-07 20:22:38,525 - INFO - Connection established
+2023-12-07 20:22:47,749 - INFO - mapped_atk_nodes: 25049
+2023-12-07 21:36:24,226 - INFO - This will get logged to a file
+2023-12-07 21:36:24,753 - INFO - Files exists. Skipping function.
+2023-12-07 21:36:24,968 - INFO - Establishing connection
+2023-12-07 21:36:24,989 - INFO - Connection established
+2023-12-07 21:36:25,004 - INFO - Table exists. Skipping function.
+2023-12-07 21:50:11,186 - INFO - This will get logged to a file
+2023-12-07 21:50:11,744 - INFO - Files exists. Skipping function.
+2023-12-07 21:50:11,925 - INFO - Establishing connection
+2023-12-07 21:50:11,938 - INFO - Connection established
+2023-12-07 21:50:11,939 - INFO - Table exists. Skipping function.
+2023-12-07 22:12:12,811 - INFO - This will get logged to a file
+2023-12-07 22:12:13,378 - INFO - Files exists. Skipping function.
+2023-12-07 22:12:13,556 - INFO - Establishing connection
+2023-12-07 22:12:13,572 - INFO - Connection established
+2023-12-07 22:12:13,575 - INFO - Table exists. Skipping function.
+2023-12-07 22:24:28,780 - INFO - This will get logged to a file
+2023-12-07 22:24:29,357 - INFO - Files exists. Skipping function.
+2023-12-07 22:24:29,551 - INFO - Establishing connection
+2023-12-07 22:24:29,564 - INFO - Connection established
+2023-12-07 22:24:29,567 - INFO - Table exists. Skipping function.
+2023-12-08 01:04:16,552 - INFO - This will get logged to a file
+2023-12-08 01:04:17,271 - INFO - Files exists. Skipping function.
+2023-12-08 01:04:17,433 - INFO - Establishing connection
+2023-12-08 01:04:17,448 - INFO - Connection established
+2023-12-08 01:04:17,464 - INFO - Table exists. Skipping function.
+2023-12-08 05:58:46,958 - INFO - This will get logged to a file
+2023-12-08 05:58:47,632 - INFO - Files exists. Skipping function.
+2023-12-08 05:58:47,791 - INFO - Establishing connection
+2023-12-08 05:58:47,824 - INFO - Connection established
+2023-12-08 05:58:47,824 - INFO - Table exists. Skipping function.
+2023-12-08 08:40:51,781 - INFO - This will get logged to a file
+2023-12-08 08:40:52,435 - INFO - Files exists. Skipping function.
+2023-12-08 08:40:52,612 - INFO - Establishing connection
+2023-12-08 08:40:52,636 - INFO - Connection established
+2023-12-08 08:40:52,636 - INFO - Table exists. Skipping function.
+2023-12-08 09:25:54,863 - INFO - This will get logged to a file
+2023-12-08 09:25:55,546 - INFO - Files exists. Skipping function.
+2023-12-08 09:25:55,709 - INFO - Establishing connection
+2023-12-08 09:25:55,726 - INFO - Connection established
+2023-12-08 09:25:55,726 - INFO - Table exists. Skipping function.
+2023-12-09 00:26:05,268 - INFO - This will get logged to a file
+2023-12-09 00:26:05,879 - INFO - Files exists. Skipping function.
+2023-12-09 00:26:06,054 - INFO - Establishing connection
+2023-12-09 00:26:06,077 - INFO - Connection established
+2023-12-09 00:26:06,081 - INFO - Table exists. Skipping function.
+2023-12-09 02:09:22,141 - INFO - This will get logged to a file
+2023-12-09 02:09:22,640 - INFO - Files exists. Skipping function.
+2023-12-09 02:09:22,806 - INFO - Establishing connection
+2023-12-09 02:09:22,823 - INFO - Connection established
+2023-12-09 02:09:22,823 - INFO - Table exists. Skipping function.
+2023-12-09 08:09:43,248 - INFO - This will get logged to a file
+2023-12-09 08:09:43,773 - INFO - Files exists. Skipping function.
+2023-12-09 08:09:43,943 - INFO - Establishing connection
+2023-12-09 08:09:43,961 - INFO - Connection established
+2023-12-09 08:09:43,961 - INFO - Table exists. Skipping function.
+2023-12-14 18:17:05,171 - INFO - This will get logged to a file
+2023-12-14 18:17:05,835 - INFO - Files exists. Skipping function.
+2023-12-14 18:17:05,998 - INFO - Establishing connection
+2023-12-14 18:17:06,060 - INFO - Connection established
+2023-12-14 18:17:06,060 - INFO - Table exists. Skipping function.
+2023-12-14 20:20:10,452 - INFO - This will get logged to a file
+2023-12-14 20:20:10,983 - INFO - Files exists. Skipping function.
+2023-12-14 20:20:11,151 - INFO - Establishing connection
+2023-12-14 20:20:11,168 - INFO - Connection established
+2023-12-14 20:20:11,168 - INFO - Table exists. Skipping function.
+2023-12-14 21:50:45,089 - INFO - This will get logged to a file
+2023-12-14 21:50:45,722 - INFO - Files exists. Skipping function.
+2023-12-14 21:50:45,906 - INFO - Establishing connection
+2023-12-14 21:50:45,922 - INFO - Connection established
+2023-12-14 21:50:45,922 - INFO - Table exists. Skipping function.
+2023-12-14 21:51:23,453 - INFO - This will get logged to a file
+2023-12-14 21:51:24,155 - INFO - Files exists. Skipping function.
+2023-12-14 21:51:24,322 - INFO - Establishing connection
+2023-12-14 21:51:24,338 - INFO - Connection established
+2023-12-14 21:51:24,338 - INFO - Table exists. Skipping function.
+2023-12-14 22:20:15,793 - INFO - This will get logged to a file
+2023-12-14 22:20:16,339 - INFO - Files exists. Skipping function.
+2023-12-14 22:20:16,547 - INFO - Establishing connection
+2023-12-14 22:20:16,556 - INFO - Connection established
+2023-12-14 22:20:16,559 - INFO - Table exists. Skipping function.
+2023-12-14 23:10:34,788 - INFO - This will get logged to a file
+2023-12-14 23:10:35,385 - INFO - Files exists. Skipping function.
+2023-12-14 23:10:35,597 - INFO - Establishing connection
+2023-12-14 23:10:35,605 - INFO - Connection established
+2023-12-14 23:10:35,608 - INFO - Table exists. Skipping function.
+2023-12-15 00:04:08,155 - INFO - This will get logged to a file
+2023-12-15 00:04:08,738 - INFO - Files exists. Skipping function.
+2023-12-15 00:04:08,925 - INFO - Establishing connection
+2023-12-15 00:04:08,935 - INFO - Connection established
+2023-12-15 00:04:08,938 - INFO - Table exists. Skipping function.
+2023-12-15 11:40:25,300 - INFO - This will get logged to a file
+2023-12-15 11:40:25,950 - INFO - Files exists. Skipping function.
+2023-12-15 11:40:26,128 - INFO - Establishing connection
+2023-12-15 11:40:26,144 - INFO - Connection established
+2023-12-15 11:40:26,144 - INFO - Table exists. Skipping function.
+2023-12-17 18:43:04,451 - INFO - This will get logged to a file
+2023-12-17 18:43:05,138 - INFO - Files exists. Skipping function.
+2023-12-17 18:43:05,337 - INFO - Establishing connection
+2023-12-17 18:43:05,354 - INFO - Connection established
+2023-12-17 18:43:05,354 - INFO - Table exists. Skipping function.
+2023-12-19 02:59:46,209 - INFO - This will get logged to a file
+2023-12-19 02:59:46,896 - INFO - Files exists. Skipping function.
+2023-12-19 02:59:47,078 - INFO - Establishing connection
+2023-12-19 02:59:47,095 - INFO - Connection established
+2023-12-19 02:59:47,095 - INFO - Table exists. Skipping function.
+2023-12-19 03:02:14,145 - INFO - This will get logged to a file
+2023-12-19 03:02:14,981 - INFO - Files exists. Skipping function.
+2023-12-19 03:02:15,187 - INFO - Establishing connection
+2023-12-19 03:02:15,226 - INFO - Connection established
+2023-12-19 03:02:15,226 - INFO - Table exists. Skipping function.
+2023-12-19 03:06:21,933 - INFO - This will get logged to a file
+2023-12-19 03:06:22,515 - INFO - Files exists. Skipping function.
+2023-12-19 03:06:22,682 - INFO - Establishing connection
+2023-12-19 03:06:22,699 - INFO - Connection established
+2023-12-19 03:06:22,699 - INFO - Table exists. Skipping function.
+2023-12-19 03:09:29,434 - INFO - This will get logged to a file
+2023-12-19 03:09:30,060 - INFO - Files exists. Skipping function.
+2023-12-19 03:09:30,217 - INFO - Establishing connection
+2023-12-19 03:09:30,233 - INFO - Connection established
+2023-12-19 03:09:30,233 - INFO - Table exists. Skipping function.
+2023-12-19 03:47:55,711 - INFO - This will get logged to a file
+2023-12-19 03:47:56,259 - INFO - Files exists. Skipping function.
+2023-12-19 03:47:56,448 - INFO - Establishing connection
+2023-12-19 03:47:56,458 - INFO - Connection established
+2023-12-19 03:47:56,462 - INFO - Table exists. Skipping function.
+2023-12-19 04:21:23,547 - INFO - This will get logged to a file
+2023-12-19 04:21:24,242 - INFO - Files exists. Skipping function.
+2023-12-19 04:21:24,408 - INFO - Establishing connection
+2023-12-19 04:21:24,423 - INFO - Connection established
+2023-12-19 04:21:24,423 - INFO - Table exists. Skipping function.
+2023-12-19 04:28:55,521 - INFO - This will get logged to a file
+2023-12-19 04:28:56,122 - INFO - Files exists. Skipping function.
+2023-12-19 04:28:56,292 - INFO - Establishing connection
+2023-12-19 04:28:56,305 - INFO - Connection established
+2023-12-19 04:28:56,305 - INFO - Table exists. Skipping function.
+2023-12-19 12:21:53,964 - INFO - This will get logged to a file
+2023-12-19 12:21:54,597 - INFO - Files exists. Skipping function.
+2023-12-19 12:21:54,763 - INFO - Establishing connection
+2023-12-19 12:21:54,796 - INFO - Connection established
+2023-12-19 12:21:54,796 - INFO - Table exists. Skipping function.
+2023-12-19 13:24:04,518 - INFO - This will get logged to a file
+2023-12-19 13:24:05,118 - INFO - Files exists. Skipping function.
+2023-12-19 13:24:05,286 - INFO - Establishing connection
+2023-12-19 13:24:05,318 - INFO - Connection established
+2023-12-19 13:24:05,318 - INFO - Table exists. Skipping function.
+2023-12-19 14:03:00,645 - INFO - This will get logged to a file
+2023-12-19 14:03:01,169 - INFO - Files exists. Skipping function.
+2023-12-19 14:03:01,350 - INFO - Establishing connection
+2023-12-19 14:03:01,350 - INFO - Connection established
+2023-12-19 14:03:01,366 - INFO - Table exists. Skipping function.
+2023-12-19 14:42:12,455 - INFO - This will get logged to a file
+2023-12-19 14:42:12,965 - INFO - Files exists. Skipping function.
+2023-12-19 14:42:13,182 - INFO - Establishing connection
+2023-12-19 14:42:13,182 - INFO - Connection established
+2023-12-19 14:42:13,182 - INFO - Table exists. Skipping function.
+2023-12-19 16:12:21,919 - INFO - This will get logged to a file
+2023-12-19 16:12:22,636 - INFO - Files exists. Skipping function.
+2023-12-19 16:12:22,800 - INFO - Establishing connection
+2023-12-19 16:12:22,833 - INFO - Connection established
+2023-12-19 16:12:22,836 - INFO - Table exists. Skipping function.
+2023-12-19 17:28:17,360 - INFO - This will get logged to a file
+2023-12-19 17:28:17,885 - INFO - Files exists. Skipping function.
+2023-12-19 17:28:18,085 - INFO - Establishing connection
+2023-12-19 17:28:18,085 - INFO - Connection established
+2023-12-19 17:28:18,102 - INFO - Table exists. Skipping function.
+2023-12-19 18:22:47,607 - INFO - This will get logged to a file
+2023-12-19 18:22:48,134 - INFO - Files exists. Skipping function.
+2023-12-19 18:22:48,329 - INFO - Establishing connection
+2023-12-19 18:22:48,338 - INFO - Connection established
+2023-12-19 18:22:48,341 - INFO - Table exists. Skipping function.
+2023-12-19 18:50:35,183 - INFO - This will get logged to a file
+2023-12-19 18:50:35,689 - INFO - Files exists. Skipping function.
+2023-12-19 18:50:35,876 - INFO - Establishing connection
+2023-12-19 18:50:35,876 - INFO - Connection established
+2023-12-19 18:50:35,890 - INFO - Table exists. Skipping function.
+2023-12-19 19:53:57,394 - INFO - This will get logged to a file
+2023-12-19 19:53:58,019 - INFO - Files exists. Skipping function.
+2023-12-19 19:53:58,189 - INFO - Establishing connection
+2023-12-19 19:53:58,221 - INFO - Connection established
+2023-12-19 19:53:58,221 - INFO - Table exists. Skipping function.
+2023-12-19 20:52:59,506 - INFO - This will get logged to a file
+2023-12-19 20:53:00,174 - INFO - Files exists. Skipping function.
+2023-12-19 20:53:00,341 - INFO - Establishing connection
+2023-12-19 20:53:00,360 - INFO - Connection established
+2023-12-19 20:53:00,360 - INFO - Table exists. Skipping function.
+2023-12-19 21:25:21,503 - INFO - This will get logged to a file
+2023-12-19 21:25:21,997 - INFO - Files exists. Skipping function.
+2023-12-19 21:25:22,207 - INFO - Establishing connection
+2023-12-19 21:25:22,218 - INFO - Connection established
+2023-12-19 21:25:22,222 - INFO - Table exists. Skipping function.
+2023-12-19 22:05:11,366 - INFO - This will get logged to a file
+2023-12-19 22:05:11,936 - INFO - Files exists. Skipping function.
+2023-12-19 22:05:12,126 - INFO - Establishing connection
+2023-12-19 22:05:12,136 - INFO - Connection established
+2023-12-19 22:05:12,139 - INFO - Table exists. Skipping function.
+2023-12-19 22:32:15,867 - INFO - This will get logged to a file
+2023-12-19 22:32:16,431 - INFO - Files exists. Skipping function.
+2023-12-19 22:32:16,616 - INFO - Establishing connection
+2023-12-19 22:32:16,620 - INFO - Connection established
+2023-12-19 22:32:16,620 - INFO - Table exists. Skipping function.
+2023-12-19 22:57:48,286 - INFO - This will get logged to a file
+2023-12-19 22:57:48,821 - INFO - Files exists. Skipping function.
+2023-12-19 22:57:49,012 - INFO - Establishing connection
+2023-12-19 22:57:49,027 - INFO - Connection established
+2023-12-19 22:57:49,027 - INFO - Table exists. Skipping function.
+2023-12-21 19:58:24,990 - INFO - This will get logged to a file
+2023-12-21 19:58:25,656 - INFO - Files exists. Skipping function.
+2023-12-21 19:58:25,840 - INFO - Establishing connection
+2023-12-21 19:58:25,887 - INFO - Connection established
+2023-12-21 19:58:25,887 - INFO - Table exists. Skipping function.
+2023-12-21 20:44:23,277 - INFO - This will get logged to a file
+2023-12-21 20:44:23,826 - INFO - Files exists. Skipping function.
+2023-12-21 20:44:23,993 - INFO - Establishing connection
+2023-12-21 20:44:24,010 - INFO - Connection established
+2023-12-21 20:44:24,010 - INFO - Table exists. Skipping function.
+2023-12-28 03:50:10,589 - INFO - This will get logged to a file
+2023-12-28 03:50:11,288 - INFO - Files exists. Skipping function.
+2023-12-28 03:50:11,488 - INFO - Establishing connection
+2023-12-28 03:50:11,521 - INFO - Connection established
+2023-12-28 03:50:11,538 - INFO - Table exists. Skipping function.
+2023-12-28 06:10:00,217 - INFO - This will get logged to a file
+2023-12-28 06:10:00,817 - INFO - Files exists. Skipping function.
+2023-12-28 06:10:01,035 - INFO - Establishing connection
+2023-12-28 06:10:01,063 - INFO - Connection established
+2023-12-28 06:10:01,066 - INFO - Table exists. Skipping function.
+2023-12-28 10:32:36,761 - INFO - This will get logged to a file
+2023-12-28 10:32:37,400 - INFO - Files exists. Skipping function.
+2023-12-28 10:32:37,572 - INFO - Establishing connection
+2023-12-28 10:32:37,603 - INFO - Connection established
+2023-12-28 10:32:37,603 - INFO - Table exists. Skipping function.
+2023-12-28 14:45:04,385 - INFO - This will get logged to a file
+2023-12-28 14:45:05,040 - INFO - Files exists. Skipping function.
+2023-12-28 14:45:05,217 - INFO - Establishing connection
+2023-12-28 14:45:05,234 - INFO - Connection established
+2023-12-28 14:45:05,234 - INFO - Table exists. Skipping function.
+2023-12-28 17:19:48,974 - INFO - This will get logged to a file
+2023-12-28 17:19:49,609 - INFO - Files exists. Skipping function.
+2023-12-28 17:19:49,780 - INFO - Establishing connection
+2023-12-28 17:19:49,812 - INFO - Connection established
+2023-12-28 17:19:49,812 - INFO - Table exists. Skipping function.
+2023-12-28 19:50:53,938 - INFO - This will get logged to a file
+2023-12-28 19:50:54,621 - INFO - Files exists. Skipping function.
+2023-12-28 19:50:54,788 - INFO - Establishing connection
+2023-12-28 19:50:54,804 - INFO - Connection established
+2023-12-28 19:50:54,821 - INFO - Table exists. Skipping function.
+2023-12-28 21:27:19,776 - INFO - This will get logged to a file
+2023-12-28 21:27:20,492 - INFO - Files exists. Skipping function.
+2023-12-28 21:27:20,657 - INFO - Establishing connection
+2023-12-28 21:27:20,675 - INFO - Connection established
+2023-12-28 21:27:20,675 - INFO - Table exists. Skipping function.
+2023-12-28 23:46:19,220 - INFO - This will get logged to a file
+2023-12-28 23:46:19,873 - INFO - Files exists. Skipping function.
+2023-12-28 23:46:20,047 - INFO - Establishing connection
+2023-12-28 23:46:20,063 - INFO - Connection established
+2023-12-28 23:46:20,079 - INFO - Table exists. Skipping function.
+2023-12-29 02:09:05,358 - INFO - This will get logged to a file
+2023-12-29 02:09:06,007 - INFO - Files exists. Skipping function.
+2023-12-29 02:09:06,191 - INFO - Establishing connection
+2023-12-29 02:09:06,208 - INFO - Connection established
+2023-12-29 02:09:06,208 - INFO - Table exists. Skipping function.
+2023-12-29 12:36:35,064 - INFO - This will get logged to a file
+2023-12-29 12:36:35,743 - INFO - Files exists. Skipping function.
+2023-12-29 12:36:35,908 - INFO - Establishing connection
+2023-12-29 12:36:35,936 - INFO - Connection established
+2023-12-29 12:36:35,936 - INFO - Table exists. Skipping function.
+2024-01-06 22:29:57,975 - INFO - This will get logged to a file
+2024-01-06 22:29:58,658 - INFO - Files exists. Skipping function.
+2024-01-06 22:29:58,825 - INFO - Establishing connection
+2024-01-06 22:29:58,942 - INFO - Connection established
+2024-01-06 22:29:58,949 - INFO - Table exists. Skipping function.
+2024-01-06 23:25:27,218 - INFO - This will get logged to a file
+2024-01-06 23:25:27,854 - INFO - Files exists. Skipping function.
+2024-01-06 23:25:28,034 - INFO - Establishing connection
+2024-01-06 23:25:28,067 - INFO - Connection established
+2024-01-06 23:25:28,067 - INFO - Table exists. Skipping function.
+2024-01-07 16:17:51,453 - INFO - This will get logged to a file
+2024-01-07 16:17:52,086 - INFO - Files exists. Skipping function.
+2024-01-07 16:17:52,286 - INFO - Establishing connection
+2024-01-07 16:17:52,303 - INFO - Connection established
+2024-01-07 16:17:52,303 - INFO - Table exists. Skipping function.
+2024-01-07 17:32:06,348 - INFO - This will get logged to a file
+2024-01-07 17:32:06,948 - INFO - Files exists. Skipping function.
+2024-01-07 17:32:07,119 - INFO - Establishing connection
+2024-01-07 17:32:07,132 - INFO - Connection established
+2024-01-07 17:32:07,148 - INFO - Table exists. Skipping function.
+2024-01-07 18:13:29,088 - INFO - This will get logged to a file
+2024-01-07 18:13:29,639 - INFO - Files exists. Skipping function.
+2024-01-07 18:13:29,809 - INFO - Establishing connection
+2024-01-07 18:13:29,831 - INFO - Connection established
+2024-01-07 18:13:29,831 - INFO - Table exists. Skipping function.
+2024-01-07 22:04:30,137 - INFO - This will get logged to a file
+2024-01-07 22:04:30,832 - INFO - Files exists. Skipping function.
+2024-01-07 22:04:30,980 - INFO - Establishing connection
+2024-01-07 22:04:31,013 - INFO - Connection established
+2024-01-07 22:04:31,013 - INFO - Table exists. Skipping function.
+2024-01-08 02:21:54,015 - INFO - This will get logged to a file
+2024-01-08 02:21:54,681 - INFO - Files exists. Skipping function.
+2024-01-08 02:21:54,864 - INFO - Establishing connection
+2024-01-08 02:21:54,881 - INFO - Connection established
+2024-01-08 02:21:54,897 - INFO - Table exists. Skipping function.
+2024-01-08 17:43:10,609 - INFO - This will get logged to a file
+2024-01-08 17:43:11,234 - INFO - Files exists. Skipping function.
+2024-01-08 17:43:11,425 - INFO - Establishing connection
+2024-01-08 17:43:11,459 - INFO - Connection established
+2024-01-08 17:43:11,459 - INFO - Table exists. Skipping function.
+2024-01-08 21:23:02,471 - INFO - This will get logged to a file
+2024-01-08 21:23:03,004 - INFO - Files exists. Skipping function.
+2024-01-08 21:23:03,200 - INFO - Establishing connection
+2024-01-08 21:23:03,205 - INFO - Connection established
+2024-01-08 21:23:03,205 - INFO - Table exists. Skipping function.
+2024-01-08 21:53:04,716 - INFO - This will get logged to a file
+2024-01-08 21:53:05,301 - INFO - Files exists. Skipping function.
+2024-01-08 21:53:05,501 - INFO - Establishing connection
+2024-01-08 21:53:05,517 - INFO - Connection established
+2024-01-08 21:53:05,517 - INFO - Table exists. Skipping function.
+2024-01-08 23:14:19,659 - INFO - This will get logged to a file
+2024-01-08 23:14:20,193 - INFO - Files exists. Skipping function.
+2024-01-08 23:14:20,361 - INFO - Establishing connection
+2024-01-08 23:14:20,379 - INFO - Connection established
+2024-01-08 23:14:20,379 - INFO - Table exists. Skipping function.
+2024-01-09 02:45:09,068 - INFO - This will get logged to a file
+2024-01-09 02:45:09,609 - INFO - Files exists. Skipping function.
+2024-01-09 02:45:09,792 - INFO - Establishing connection
+2024-01-09 02:45:09,802 - INFO - Connection established
+2024-01-09 02:45:09,805 - INFO - Table exists. Skipping function.
+2024-01-09 04:36:37,044 - INFO - This will get logged to a file
+2024-01-09 04:36:37,670 - INFO - Files exists. Skipping function.
+2024-01-09 04:36:37,844 - INFO - Establishing connection
+2024-01-09 04:36:37,859 - INFO - Connection established
+2024-01-09 04:36:37,859 - INFO - Table exists. Skipping function.
+2024-01-09 13:42:07,714 - INFO - This will get logged to a file
+2024-01-09 13:42:08,366 - INFO - Files exists. Skipping function.
+2024-01-09 13:42:08,545 - INFO - Establishing connection
+2024-01-09 13:42:08,567 - INFO - Connection established
+2024-01-09 13:42:08,567 - INFO - Table exists. Skipping function.
+2024-01-09 15:52:34,202 - INFO - This will get logged to a file
+2024-01-09 15:52:34,853 - INFO - Files exists. Skipping function.
+2024-01-09 15:52:35,050 - INFO - Establishing connection
+2024-01-09 15:52:35,066 - INFO - Connection established
+2024-01-09 15:52:35,066 - INFO - Table exists. Skipping function.
+2024-01-10 03:27:28,304 - INFO - This will get logged to a file
+2024-01-10 03:27:28,982 - INFO - Files exists. Skipping function.
+2024-01-10 03:27:29,159 - INFO - Establishing connection
+2024-01-10 03:27:29,175 - INFO - Connection established
+2024-01-10 03:27:29,190 - INFO - Table exists. Skipping function.
+2024-01-10 04:09:13,792 - INFO - This will get logged to a file
+2024-01-10 04:09:14,425 - INFO - Files exists. Skipping function.
+2024-01-10 04:09:14,591 - INFO - Establishing connection
+2024-01-10 04:09:14,625 - INFO - Connection established
+2024-01-10 04:09:14,641 - INFO - Table exists. Skipping function.
+2024-01-10 05:22:22,106 - INFO - This will get logged to a file
+2024-01-10 05:22:22,732 - INFO - Files exists. Skipping function.
+2024-01-10 05:22:22,898 - INFO - Establishing connection
+2024-01-10 05:22:22,921 - INFO - Connection established
+2024-01-10 05:22:22,922 - INFO - Table exists. Skipping function.
+2024-01-10 11:19:13,682 - INFO - This will get logged to a file
+2024-01-10 11:19:14,334 - INFO - Files exists. Skipping function.
+2024-01-10 11:19:14,498 - INFO - Establishing connection
+2024-01-10 11:19:14,531 - INFO - Connection established
+2024-01-10 11:19:14,531 - INFO - Table exists. Skipping function.
+2024-01-10 17:29:42,231 - INFO - This will get logged to a file
+2024-01-10 17:29:42,914 - INFO - Files exists. Skipping function.
+2024-01-10 17:29:43,082 - INFO - Establishing connection
+2024-01-10 17:29:43,113 - INFO - Connection established
+2024-01-10 17:29:43,114 - INFO - Table exists. Skipping function.
+2024-01-10 21:06:08,674 - INFO - This will get logged to a file
+2024-01-10 21:06:09,360 - INFO - Files exists. Skipping function.
+2024-01-10 21:06:09,544 - INFO - Establishing connection
+2024-01-10 21:06:09,587 - INFO - Connection established
+2024-01-10 21:06:09,590 - INFO - Table exists. Skipping function.
+2024-01-10 22:06:56,912 - INFO - This will get logged to a file
+2024-01-10 22:06:57,548 - INFO - Files exists. Skipping function.
+2024-01-10 22:06:57,725 - INFO - Establishing connection
+2024-01-10 22:06:57,744 - INFO - Connection established
+2024-01-10 22:06:57,747 - INFO - Table exists. Skipping function.

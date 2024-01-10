@@ -1,0 +1,205 @@
+Experiment date: 2024_01_08__21_23_02gat_1_0
+Current project directory: c:\Users\patri\Desktop\gnn_testenv\notebooks
+Test/Train split: 20
+----------
+Data_train size of x / features: [154960, 56]
+Data_train size of edge_index: [2, 1738773]
+Data_train size of y: [154960]
+Data_train distribution of y: [67717  8533 74229  2403  2039    39]
+Data_train size of train_mask / test_mask: [154960][154960]
+
+Data_test size of x / features: [574338, 56]
+Data_test size of edge_index: [2, 7375768]
+Data_test size of y: [574338]
+Data_test distribution of y: [133448  43080 374521  12657  10510    122]
+Data_test size of train_mask / test_mask: [574338][574338]
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 1 Sekunden, 0.0 Millisekunden, 365.0 Mikrosekunden, 946.0544586181641 Nanosekunden
+----------
+train_thre: 1.0
+test_thre: 2.0
+hop: 2
+init_epochs: 30
+submodel_max_epochs: 150
+test_cnt_thre: 3
+hidden_layer: 32
+train_model: GATNet
+test_model: GATNet
+
+optimizer: Adam
+optimizer_lr: 0.001
+optimizer_betas: (0.9, 0.999)
+optimizer_eps: 1e-08
+optimizer_weight_decay: 0.0005
+optimizer_amsgrad: False
+optimizer_maximize: False
+optimizer_foreach: None
+optimizer_capturable: False
+optimizer_differentiable: False
+optimizer_fused: None
+----------
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 4 Sekunden, 0.0 Millisekunden, 48.0 Mikrosekunden, 346.9963073730469 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 2 Sekunden, 0.0 Millisekunden, 691.0 Mikrosekunden, 598.6537933349609 Nanosekunden
+### PRETRAINING ### - wird nichtgesaved
+Epoche: 1 Loss: 98.4238052368164 Accuracy: 0.01697857511615901
+Epoche: 2 Loss: 263.7982177734375 Accuracy: 0.01746257098606092
+Epoche: 3 Loss: 146.88632202148438 Accuracy: 0.018282137325761488
+Epoche: 4 Loss: 57.31916046142578 Accuracy: 0.01852736189984512
+Epoche: 5 Loss: 342.7057189941406 Accuracy: 0.019811564274651524
+Epoche: 6 Loss: 148.86282348632812 Accuracy: 0.019818017552916883
+Epoche: 7 Loss: 244.15786743164062 Accuracy: 0.019843830665978317
+Epoche: 8 Loss: 210.74530029296875 Accuracy: 0.020385906040268457
+Epoche: 9 Loss: 328.0596923828125 Accuracy: 0.023728704181724316
+Epoche: 10 Loss: 237.03033447265625 Accuracy: 0.024806401652039237
+Epoche: 11 Loss: 102.24702453613281 Accuracy: 0.025135518843572534
+Epoche: 12 Loss: 139.82455444335938 Accuracy: 0.025348477026329374
+Epoche: 13 Loss: 179.6281280517578 Accuracy: 0.025348477026329374
+Epoche: 14 Loss: 138.2119903564453 Accuracy: 0.029962570986060918
+Epoche: 15 Loss: 473.843017578125 Accuracy: 0.03092410944759938
+Epoche: 16 Loss: 178.6320343017578 Accuracy: 0.03135647909137842
+Epoche: 17 Loss: 328.4144287109375 Accuracy: 0.03191791430046464
+Epoche: 18 Loss: 305.2243347167969 Accuracy: 0.04082989158492514
+Epoche: 19 Loss: 65.47335052490234 Accuracy: 0.16600413009808984
+Epoche: 20 Loss: 273.8764953613281 Accuracy: 0.23510583376355187
+Epoche: 21 Loss: 108.90045166015625 Accuracy: 0.2498451213216314
+Epoche: 22 Loss: 199.13343811035156 Accuracy: 0.2517681982447083
+Epoche: 23 Loss: 253.61032104492188 Accuracy: 0.2533105317501291
+Epoche: 24 Loss: 249.8343048095703 Accuracy: 0.2544527620030976
+Epoche: 25 Loss: 161.06240844726562 Accuracy: 0.254639907072793
+Epoche: 26 Loss: 99.11858367919922 Accuracy: 0.6832343830665978
+Epoche: 27 Loss: 192.09625244140625 Accuracy: 0.6818791946308724
+Epoche: 28 Loss: 301.6924743652344 Accuracy: 0.6820534331440372
+Epoche: 29 Loss: 127.16014099121094 Accuracy: 0.68192436757873
+false_classified: 49289
+true_classified: 105671
+Gesamtzeit seit beginn: 0 Stunden, 2 Minute, 17 Sekunden, 0.0 Millisekunden, 377.0 Mikrosekunden, 185.58311462402344 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 2 Minute, 13 Sekunden, 0.0 Millisekunden, 319.0 Mikrosekunden, 983.2439422607422 Nanosekunden
+
+### MULTI MODEL TRAINING ###
+Model - false_classified - true_classified
+0) 49289 105671
+  false Verteilung: [33486  8444  4142  1142  2036    39]
+  true Verteilung: [34231    89 70087  1261     3]
+1) 15739 33550
+  false Verteilung: [   4 8377 4141 1142 2036   39]
+  true Verteilung: [33482    67     1]
+2) 5364 10375
+  false Verteilung: [   4  336 1920 1142 1923   39]
+  true Verteilung: [   0 8041 2221    0  113]
+3) 1770 3594
+  false Verteilung: [  2 192 737 398 402  39]
+  true Verteilung: [   2  144 1183  744 1521]
+4) 419 1351
+  false Verteilung: [  2 192  41  83  62  39]
+  true Verteilung: [  0   0 696 315 340]
+Gesamtgröße alle Model-Dateien: 99525 Bytes, 97.19 KB, 0.09 MB, 0.00 GB
+Gesamtzeit seit beginn: 0 Stunden, 4 Minute, 35 Sekunden, 0.0 Millisekunden, 278.0 Mikrosekunden, 963.5658264160156 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 2 Minute, 17 Sekunden, 0.0 Millisekunden, 891.0 Mikrosekunden, 188.62152099609375 Nanosekunden
+
+### OWN EVALUATION ### - Jedes Model mit dem Test Datensatz testen
+Model_num: 0  Accuracy:0.7418  false_classified:148320  true_classified:426018
+  false classified Verteilung: [67755 42557 20802  6577 10508   121]
+  true classified Verteilung: [ 65693    523 353719   6080      2      1]
+  Unique Count of pred: (tensor([False,  True]), tensor([426018, 148320]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 5742, 'fp': 5, 'tn': 549284, 'tp': 19307}
+  Precision: 0.9997410936205418
+  Recall: 0.7707692921873098
+  F-Score: 0.8704492684524441
+  Accuracy: 0.9899936970912598
+  
+Model_num: 1  Accuracy:0.2329  false_classified:440589  true_classified:133749
+  false classified Verteilung: [    16  42766 374518  12657  10510    122]
+  true classified Verteilung: [133432    314      3]
+  Unique Count of pred: (tensor([False,  True]), tensor([494073,  80265]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 18663, 'fp': 13, 'tn': 549276, 'tp': 6386}
+  Precision: 0.9979684325675731
+  Recall: 0.2549403169787207
+  F-Score: 0.4061307555005257
+  Accuracy: 0.9674825625328639
+  
+Model_num: 2  Accuracy:0.1060  false_classified:513432  true_classified:60906
+  false classified Verteilung: [133448   1846 355535  12657   9824    122]
+  true classified Verteilung: [    0 41234 18986     0   686]
+  Unique Count of pred: (tensor([False,  True]), tensor([547243,  27095]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 18850, 'fp': 26, 'tn': 549263, 'tp': 6199}
+  Precision: 0.9958232931726747
+  Recall: 0.2474749490997635
+  F-Score: 0.39643154054494906
+  Accuracy: 0.9671343355306458
+  
+Model_num: 3  Accuracy:0.0521  false_classified:544405  true_classified:29933
+  false classified Verteilung: [133408  42362 359482   6739   2292    122]
+  true classified Verteilung: [   40   718 15039  5918  8218]
+  Unique Count of pred: (tensor([False,  True]), tensor([564997,   9341]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 22508, 'fp': 16, 'tn': 549273, 'tp': 2541}
+  Precision: 0.9937426671880721
+  Recall: 0.10144117529641862
+  F-Score: 0.18409041511033586
+  Accuracy: 0.9607826750101857
+  
+Model_num: 4  Accuracy:0.0761  false_classified:530657  true_classified:43681
+  false classified Verteilung: [133448  43080 335967   9679   8361    122]
+  true classified Verteilung: [    0     0 38554  2978  2149]
+  Unique Count of pred: (tensor([False,  True]), tensor([571863,   2475]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 24435, 'fp': 4, 'tn': 549285, 'tp': 614}
+  Precision: 0.9935275080904541
+  Recall: 0.024511956565132244
+  F-Score: 0.04784353449485201
+  Accuracy: 0.9574484014639463
+  
+Unique Count of data_flow.y: (tensor([0, 1, 2, 3, 4, 5]), tensor([133448,  43080, 374521,  12657,  10510,    122]))
+Gesamtzeit seit beginn: 0 Stunden, 9 Minute, 55 Sekunden, 0.0 Millisekunden, 948.0 Mikrosekunden, 180.19866943359375 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 5 Minute, 20 Sekunden, 0.0 Millisekunden, 670.0 Mikrosekunden, 228.9581298828125 Nanosekunden
+
+### 0 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 24435, 'fp': 4, 'tn': 549285, 'tp': 614}
+TP: 614, FP: 4, TN: 549285, FN: 24435
+Precision: 0.9935275080904541
+Recall: 0.024511956565132244
+F-Score: 0.04784353449485201
+Accuracy: 0.9574484014639463
+Gesamtzeit seit beginn: 0 Stunden, 9 Minute, 57 Sekunden, 0.0 Millisekunden, 393.0 Mikrosekunden, 10.377883911132812 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 1 Sekunden, 0.0 Millisekunden, 439.0 Mikrosekunden, 381.1225891113281 Nanosekunden
+
+### 1 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 20352, 'tn': 549289, 'tp': 4697}
+TP: 4697, FP: 0, TN: 549289, FN: 20352
+Precision: 0.9999999999999787
+Recall: 0.18751247554792533
+F-Score: 0.31580716732363584
+Accuracy: 0.9645644202542754
+Gesamtzeit seit beginn: 0 Stunden, 11 Minute, 1 Sekunden, 0.0 Millisekunden, 309.0 Mikrosekunden, 63.91143798828125 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 1 Minute, 3 Sekunden, 0.0 Millisekunden, 899.0 Mikrosekunden, 328.2318115234375 Nanosekunden
+
+### 2 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 62, 'tn': 549289, 'tp': 24987}
+TP: 24987, FP: 0, TN: 549289, FN: 62
+Precision: 0.9999999999999961
+Recall: 0.9975248512914648
+F-Score: 0.9987608921076426
+Accuracy: 0.9998920496293123
+Gesamtzeit seit beginn: 0 Stunden, 13 Minute, 4 Sekunden, 0.0 Millisekunden, 680.0 Mikrosekunden, 470.7050323486328 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 2 Minute, 3 Sekunden, 0.0 Millisekunden, 361.0 Mikrosekunden, 20.803451538085938 Nanosekunden
+Gesamtzeit seit beginn: 0 Stunden, 13 Minute, 4 Sekunden, 0.0 Millisekunden, 894.0 Mikrosekunden, 655.2276611328125 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 0 Sekunden, 0.0 Millisekunden, 210.0 Mikrosekunden, 264.9211883544922 Nanosekunden

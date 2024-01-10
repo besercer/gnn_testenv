@@ -1,0 +1,445 @@
+Experiment date: 2023_12_09__00_26_05gcn
+Current project directory: c:\Users\patri\Desktop\gnn_testenv\notebooks
+Test/Train split: 20
+----------
+Data_train size of x / features: [154960, 56]
+Data_train size of edge_index: [2, 1738773]
+Data_train size of y: [154960]
+Data_train distribution of y: [67717  8533 74229  2403  2039    39]
+Data_train size of train_mask / test_mask: [154960][154960]
+
+Data_test size of x / features: [574338, 56]
+Data_test size of edge_index: [2, 7375768]
+Data_test size of y: [574338]
+Data_test distribution of y: [133448  43080 374521  12657  10510    122]
+Data_test size of train_mask / test_mask: [574338][574338]
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 1 Sekunden, 0.0 Millisekunden, 440.0 Mikrosekunden, 343.1415557861328 Nanosekunden
+----------
+train_thre: 1.5
+test_thre: 2.0
+hop: 2
+init_epochs: 30
+submodel_max_epochs: 150
+test_cnt_thre: 3
+hidden_layer: 32
+train_model: GCNNet
+test_model: GCNNet
+
+optimizer: Adam
+optimizer_lr: 0.001
+optimizer_betas: (0.9, 0.999)
+optimizer_eps: 1e-08
+optimizer_weight_decay: 0.0005
+optimizer_amsgrad: False
+optimizer_maximize: False
+optimizer_foreach: None
+optimizer_capturable: False
+optimizer_differentiable: False
+optimizer_fused: None
+----------
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 4 Sekunden, 0.0 Millisekunden, 114.0 Mikrosekunden, 257.3356628417969 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 2 Sekunden, 0.0 Millisekunden, 673.0 Mikrosekunden, 914.1941070556641 Nanosekunden
+### PRETRAINING ### - wird nichtgesaved
+Epoche: 1 Loss: 4985.91943359375 Accuracy: 0.0033750645327826536
+Epoche: 2 Loss: 4915.2109375 Accuracy: 0.003426690758905524
+Epoche: 3 Loss: 5281.921875 Accuracy: 0.0034331440371708826
+Epoche: 4 Loss: 3340.880126953125 Accuracy: 0.003491223541559112
+Epoche: 5 Loss: 4429.64990234375 Accuracy: 0.0035299432111512647
+Epoche: 6 Loss: 3399.329833984375 Accuracy: 0.0036073825503355706
+Epoche: 7 Loss: 4685.978515625 Accuracy: 0.003755807950438823
+Epoche: 8 Loss: 4141.09765625 Accuracy: 0.003910686628807434
+Epoche: 9 Loss: 4160.984375 Accuracy: 0.004949664429530202
+Epoche: 10 Loss: 2806.7861328125 Accuracy: 0.005091636551368095
+Epoche: 11 Loss: 3213.303955078125 Accuracy: 0.005259421786267424
+Epoche: 12 Loss: 3486.30126953125 Accuracy: 0.005433660299432112
+Epoche: 13 Loss: 3251.695556640625 Accuracy: 0.005659525038719669
+Epoche: 14 Loss: 3498.94384765625 Accuracy: 0.005924109447599381
+Epoche: 15 Loss: 3485.35791015625 Accuracy: 0.006143520908621579
+Epoche: 16 Loss: 2574.103759765625 Accuracy: 0.007176045431078988
+Epoche: 17 Loss: 3617.447509765625 Accuracy: 0.007195405265875064
+Epoche: 18 Loss: 2616.219482421875 Accuracy: 0.007143779039752194
+Epoche: 19 Loss: 2577.55712890625 Accuracy: 0.007292204439855446
+Epoche: 20 Loss: 3164.5244140625 Accuracy: 0.007343830665978317
+Epoche: 21 Loss: 2701.99658203125 Accuracy: 0.007634228187919463
+Epoche: 22 Loss: 2155.104248046875 Accuracy: 0.00781491997934951
+Epoche: 23 Loss: 2690.79345703125 Accuracy: 0.00818921011874032
+Epoche: 24 Loss: 2471.8935546875 Accuracy: 0.008279556014455344
+Epoche: 25 Loss: 3465.605712890625 Accuracy: 0.009047496128033041
+Epoche: 26 Loss: 2421.770751953125 Accuracy: 0.011248064016520393
+Epoche: 27 Loss: 3305.505126953125 Accuracy: 0.012261228704181724
+Epoche: 28 Loss: 3628.59228515625 Accuracy: 0.01239674754775426
+Epoche: 29 Loss: 2743.697265625 Accuracy: 0.023089829633453796
+false_classified: 152246
+true_classified: 2714
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 59 Sekunden, 0.0 Millisekunden, 317.0 Mikrosekunden, 924.7379302978516 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 55 Sekunden, 0.0 Millisekunden, 204.0 Mikrosekunden, 807.7583312988281 Nanosekunden
+
+### MULTI MODEL TRAINING ###
+Model - false_classified - true_classified
+0) 152246 2714
+  false Verteilung: [65354  8400 74229  2217  2021    25]
+  true Verteilung: [2363  133    0  186   18   14]
+1) 20188 132058
+  false Verteilung: [ 735 7556 7636 2217 2019   25]
+  true Verteilung: [64619   844 66593     0     2]
+2) 18290 1898
+  false Verteilung: [ 700 7312 6020 2217 2017   24]
+  true Verteilung: [  35  244 1616    0    2    1]
+3) 17084 1206
+  false Verteilung: [ 685 7265 4890 2208 2012   24]
+  true Verteilung: [  15   47 1130    9    5]
+4) 14195 2889
+  false Verteilung: [ 618 4967 4391 2189 2007   23]
+  true Verteilung: [  67 2298  499   19    5    1]
+5) 13125 1070
+  false Verteilung: [ 579 4946 3898 1725 1957   20]
+  true Verteilung: [ 39  21 493 464  50   3]
+6) 12047 1078
+  false Verteilung: [ 576 4913 2936 1707 1896   19]
+  true Verteilung: [  3  33 962  18  61   1]
+7) 8137 3910
+  false Verteilung: [ 495 1506 2689 1681 1748   18]
+  true Verteilung: [  81 3407  247   26  148    1]
+8) 5255 2882
+  false Verteilung: [ 493  374 1387 1465 1518   18]
+  true Verteilung: [   2 1132 1302  216  230]
+9) 3534 1721
+  false Verteilung: [ 464  370  709 1440  539   12]
+  true Verteilung: [ 29   4 678  25 979   6]
+10) 1890 1644
+  false Verteilung: [ 35 232 695 428 496   4]
+  true Verteilung: [ 429  138   14 1012   43    8]
+11) 1282 608
+  false Verteilung: [ 27 127 292 394 438   4]
+  true Verteilung: [  8 105 403  34  58]
+12) 1082 200
+  false Verteilung: [ 27 117 274 248 414   2]
+  true Verteilung: [  0  10  18 146  24   2]
+13) 904 178
+  false Verteilung: [ 11  87 243 237 325   1]
+  true Verteilung: [16 30 31 11 89  1]
+14) 599 305
+  false Verteilung: [ 11  35 155 234 163   1]
+  true Verteilung: [  0  52  88   3 162]
+15) 359 240
+  false Verteilung: [  7  32 107  99 113   1]
+  true Verteilung: [  4   3  48 135  50]
+16) 195 164
+  false Verteilung: [ 0 17 76 78 24]
+  true Verteilung: [ 7 15 31 21 89  1]
+17) 88 107
+  false Verteilung: [ 0  0 21 55 12]
+  true Verteilung: [ 0 17 55 23 12]
+18) 45 43
+  false Verteilung: [ 0  0 21 18  6]
+  true Verteilung: [ 0  0  0 37  6]
+19) 24 21
+  false Verteilung: [ 0  0  3 18  3]
+  true Verteilung: [ 0  0 18  0  3]
+20) 3 21
+  false Verteilung: [0 0 0 0 3]
+  true Verteilung: [ 0  0  3 18]
+Gesamtgröße alle Model-Dateien: 205069 Bytes, 200.26 KB, 0.20 MB, 0.00 GB
+Gesamtzeit seit beginn: 0 Stunden, 8 Minute, 16 Sekunden, 0.0 Millisekunden, 159.0 Mikrosekunden, 862.9951477050781 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 7 Minute, 16 Sekunden, 0.0 Millisekunden, 840.0 Mikrosekunden, 797.9011535644531 Nanosekunden
+
+### OWN EVALUATION ### - Jedes Model mit dem Test Datensatz testen
+Model_num: 0  Accuracy:0.0198  false_classified:562974  true_classified:11364
+  false classified Verteilung: [123386  42492 374514  12034  10454     94]
+  true classified Verteilung: [10062   588     7   623    56    28]
+  Unique Count of pred: (tensor([False,  True]), tensor([ 11364, 562974]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 409, 'fp': 5, 'tn': 549284, 'tp': 24640}
+  Precision: 0.9997971190910896
+  Recall: 0.9836720028743624
+  F-Score: 0.9916690143179312
+  Accuracy: 0.9992791701054083
+  
+Model_num: 1  Accuracy:0.8043  false_classified:112387  true_classified:461951
+  false classified Verteilung: [10787 38292 40021 12657 10508   122]
+  true classified Verteilung: [122661   4788 334500      0      2]
+  Unique Count of pred: (tensor([False,  True]), tensor([471356, 102982]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 13362, 'fp': 21, 'tn': 549268, 'tp': 11687}
+  Precision: 0.9982063546293047
+  Recall: 0.46656553155814423
+  F-Score: 0.6359060858721912
+  Accuracy: 0.9766983901465688
+  
+Model_num: 2  Accuracy:0.0275  false_classified:558547  true_classified:15791
+  false classified Verteilung: [133333  41052 364120  12657   7265    120]
+  true classified Verteilung: [  115  2028 10401     0  3245     2]
+  Unique Count of pred: (tensor([False,  True]), tensor([485960,  88378]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 13409, 'fp': 41, 'tn': 549248, 'tp': 11640}
+  Precision: 0.9964900265388152
+  Recall: 0.46468920915006406
+  F-Score: 0.6338143206753782
+  Accuracy: 0.9765817341008256
+  
+Model_num: 3  Accuracy:0.0332  false_classified:555278  true_classified:19060
+  false classified Verteilung: [133176  31891 366980  12625  10484    122]
+  true classified Verteilung: [  272 11189  7541    32    26]
+  Unique Count of pred: (tensor([False,  True]), tensor([501852,  72486]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 13432, 'fp': 31, 'tn': 549258, 'tp': 11617}
+  Precision: 0.9973385989010903
+  Recall: 0.46377100882270567
+  F-Score: 0.6331307735893864
+  Accuracy: 0.9765590993456814
+  
+Model_num: 4  Accuracy:0.0443  false_classified:548918  true_classified:25420
+  false classified Verteilung: [130828  28135 366714  12626  10493    122]
+  true classified Verteilung: [ 2620 14945  7807    31    17]
+  Unique Count of pred: (tensor([False,  True]), tensor([517519,  56819]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 13504, 'fp': 25, 'tn': 549264, 'tp': 11545}
+  Precision: 0.9978392394122645
+  Recall: 0.4608966425805403
+  F-Score: 0.6305469837629918
+  Accuracy: 0.9764441844349494
+  
+Model_num: 5  Accuracy:0.0275  false_classified:558530  true_classified:15808
+  false classified Verteilung: [133075  40031 367392   7555  10360    117]
+  true classified Verteilung: [ 373 3049 7129 5102  150    5]
+  Unique Count of pred: (tensor([False,  True]), tensor([524700,  49638]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 18148, 'fp': 24, 'tn': 549265, 'tp': 6901}
+  Precision: 0.9965342960288665
+  Recall: 0.2755000199608756
+  F-Score: 0.43166322633748916
+  Accuracy: 0.9683600945784538
+  
+Model_num: 6  Accuracy:0.0342  false_classified:554697  true_classified:19641
+  false classified Verteilung: [133376  30738 368024  12402  10037    120]
+  true classified Verteilung: [   72 12342  6497   255   473     2]
+  Unique Count of pred: (tensor([False,  True]), tensor([530234,  44104]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 18196, 'fp': 28, 'tn': 549261, 'tp': 6853}
+  Precision: 0.9959308240081238
+  Recall: 0.27358377579943205
+  F-Score: 0.42925148759537396
+  Accuracy: 0.9682695555578771
+  
+Model_num: 7  Accuracy:0.0568  false_classified:541695  true_classified:32643
+  false classified Verteilung: [132545  16684 370421  12308   9616    121]
+  true classified Verteilung: [  903 26396  4100   349   894     1]
+  Unique Count of pred: (tensor([False,  True]), tensor([544050,  30288]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 18309, 'fp': 22, 'tn': 549267, 'tp': 6740}
+  Precision: 0.9967465246968205
+  Recall: 0.26907261766936696
+  F-Score: 0.42375278988195886
+  Accuracy: 0.9680832541116904
+  
+Model_num: 8  Accuracy:0.0422  false_classified:550123  true_classified:24215
+  false classified Verteilung: [133144  32361 364396  11088   9023    111]
+  true classified Verteilung: [  304 10719 10125  1569  1487    11]
+  Unique Count of pred: (tensor([False,  True]), tensor([553730,  20608]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 19533, 'fp': 18, 'tn': 549271, 'tp': 5516}
+  Precision: 0.996747379833737
+  Recall: 0.22020839155255612
+  F-Score: 0.3607232776082596
+  Accuracy: 0.9659590693981592
+  
+Model_num: 9  Accuracy:0.0479  false_classified:546828  true_classified:27510
+  false classified Verteilung: [131279  40378 354979  12032   8063     97]
+  true classified Verteilung: [ 2169  2702 19542   625  2447    25]
+  Unique Count of pred: (tensor([False,  True]), tensor([558749,  15589]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 19762, 'fp': 16, 'tn': 549273, 'tp': 5287}
+  Precision: 0.9969828399019235
+  Recall: 0.21106631003233578
+  F-Score: 0.3483790194756404
+  Accuracy: 0.9655638317506416
+  
+Model_num: 10  Accuracy:0.0459  false_classified:548002  true_classified:26336
+  false classified Verteilung: [123416  38285 370755   5189  10249    108]
+  true classified Verteilung: [10032  4795  3766  7468   261    14]
+  Unique Count of pred: (tensor([False,  True]), tensor([563166,  11172]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 22805, 'fp': 14, 'tn': 549275, 'tp': 2244}
+  Precision: 0.9937998228520375
+  Recall: 0.08958441454748657
+  F-Score: 0.16435346246697582
+  Accuracy: 0.9602690401819138
+  
+Model_num: 11  Accuracy:0.0443  false_classified:548876  true_classified:25462
+  false classified Verteilung: [131350  32689 362350  12203  10163    121]
+  true classified Verteilung: [ 2098 10391 12171   454   347     1]
+  Unique Count of pred: (tensor([False,  True]), tensor([566420,   7918]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 23031, 'fp': 13, 'tn': 549276, 'tp': 2018}
+  Precision: 0.9935992122106847
+  Recall: 0.08056209828735647
+  F-Score: 0.14903988181773398
+  Accuracy: 0.9598772848044183
+  
+Model_num: 12  Accuracy:0.0331  false_classified:555315  true_classified:19023
+  false classified Verteilung: [133376  37130 368688   5829  10209     83]
+  true classified Verteilung: [  72 5950 5833 6828  301   39]
+  Unique Count of pred: (tensor([False,  True]), tensor([567313,   7025]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 23563, 'fp': 11, 'tn': 549278, 'tp': 1486}
+  Precision: 0.9926519706078161
+  Recall: 0.059323725498023644
+  F-Score: 0.1119566036207889
+  Accuracy: 0.95895448324854
+  
+Model_num: 13  Accuracy:0.0681  false_classified:535209  true_classified:39129
+  false classified Verteilung: [124980  19997 368129  11900  10081    122]
+  true classified Verteilung: [ 8468 23083  6392   757   429]
+  Unique Count of pred: (tensor([False,  True]), tensor([568231,   6107]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 23611, 'fp': 10, 'tn': 549279, 'tp': 1438}
+  Precision: 0.9930939226518651
+  Recall: 0.05740748133658008
+  F-Score: 0.10854058949036512
+  Accuracy: 0.9588726499030188
+  
+Model_num: 14  Accuracy:0.0528  false_classified:543988  true_classified:30350
+  false classified Verteilung: [133448  20776 368725  11700   9217    122]
+  true classified Verteilung: [    0 22304  5796   957  1293]
+  Unique Count of pred: (tensor([False,  True]), tensor([569878,   4460]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 23802, 'fp': 10, 'tn': 549279, 'tp': 1247}
+  Precision: 0.9920445505170252
+  Recall: 0.049782426444169234
+  F-Score: 0.0948072682947082
+  Accuracy: 0.9585400931159004
+  
+Model_num: 15  Accuracy:0.0304  false_classified:556902  true_classified:17436
+  false classified Verteilung: [131490  40394 369344   8156   7396    122]
+  true classified Verteilung: [1958 2686 5177 4501 3114]
+  Unique Count of pred: (tensor([False,  True]), tensor([571098,   3240]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 24558, 'fp': 5, 'tn': 549284, 'tp': 491}
+  Precision: 0.9899193548385101
+  Recall: 0.019601580901433113
+  F-Score: 0.038441965155714165
+  Accuracy: 0.957232500722571
+  
+Model_num: 16  Accuracy:0.0649  false_classified:537092  true_classified:37246
+  false classified Verteilung: [133075  15371 367534  11740   9256    116]
+  true classified Verteilung: [  373 27709  6987   917  1254     6]
+  Unique Count of pred: (tensor([False,  True]), tensor([571979,   2359]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 24600, 'fp': 4, 'tn': 549285, 'tp': 449}
+  Precision: 0.991169977924726
+  Recall: 0.017924867260169997
+  F-Score: 0.03521292447302182
+  Accuracy: 0.9571611141871162
+  
+Model_num: 17  Accuracy:0.6401  false_classified:206713  true_classified:367625
+  false classified Verteilung: [133448  31827  22242   8857  10217    122]
+  true classified Verteilung: [     0  11253 352279   3800    293]
+  Unique Count of pred: (tensor([False,  True]), tensor([573334,   1004]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 24727, 'fp': 2, 'tn': 549287, 'tp': 322}
+  Precision: 0.9938271604935205
+  Recall: 0.012854804583017236
+  F-Score: 0.025381310839712387
+  Accuracy: 0.95694347231073
+  
+Model_num: 18  Accuracy:0.0274  false_classified:558622  true_classified:15716
+  false classified Verteilung: [133448  43080 374521   2135   5316    122]
+  true classified Verteilung: [    0     0     0 10522  5194]
+  Unique Count of pred: (tensor([False,  True]), tensor([573824,    514]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 24927, 'fp': 1, 'tn': 549288, 'tp': 122}
+  Precision: 0.9918699186983806
+  Recall: 0.004870453910335723
+  F-Score: 0.009693310026041567
+  Accuracy: 0.9565969864435228
+  
+Model_num: 19  Accuracy:0.0200  false_classified:562877  true_classified:11461
+  false classified Verteilung: [133448  43080 367580  11979   6668    122]
+  true classified Verteilung: [   0    0 6941  678 3842]
+  Unique Count of pred: (tensor([False,  True]), tensor([574005,    333]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 24927, 'fp': 1, 'tn': 549288, 'tp': 122}
+  Precision: 0.9918699186983806
+  Recall: 0.004870453910335723
+  F-Score: 0.009693310026041567
+  Accuracy: 0.9565969864435228
+  
+Model_num: 20  Accuracy:0.6308  false_classified:212028  true_classified:362310
+  false classified Verteilung: [133448  43080  19194   7017   9167    122]
+  true classified Verteilung: [     0      0 355327   5640   1343]
+  Unique Count of pred: (tensor([False,  True]), tensor([574139,    199]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 25039, 'tn': 549289, 'tp': 10}
+  Precision: 0.99999999999
+  Recall: 0.0003992175336340756
+  F-Score: 0.0007981164451095669
+  Accuracy: 0.9564037204572917
+  
+Unique Count of data_flow.y: (tensor([0, 1, 2, 3, 4, 5]), tensor([133448,  43080, 374521,  12657,  10510,    122]))
+Gesamtzeit seit beginn: 0 Stunden, 30 Minute, 44 Sekunden, 0.0 Millisekunden, 301.0 Mikrosekunden, 673.6507415771484 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 22 Minute, 28 Sekunden, 0.0 Millisekunden, 124.0 Mikrosekunden, 884.1285705566406 Nanosekunden
+
+### 0 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 25039, 'tn': 549289, 'tp': 10}
+TP: 10, FP: 0, TN: 549289, FN: 25039
+Precision: 0.99999999999
+Recall: 0.0003992175336340756
+F-Score: 0.0007981164451095669
+Accuracy: 0.9564037204572917
+Gesamtzeit seit beginn: 0 Stunden, 30 Minute, 45 Sekunden, 0.0 Millisekunden, 54.0 Mikrosekunden, 242.84934997558594 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 0 Sekunden, 0.0 Millisekunden, 735.0 Mikrosekunden, 785.4843139648438 Nanosekunden
+
+### 1 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 24868, 'tn': 549289, 'tp': 181}
+TP: 181, FP: 0, TN: 549289, FN: 24868
+Precision: 0.9999999999994476
+Recall: 0.007225837358776769
+F-Score: 0.014347998413161192
+Accuracy: 0.9567014545441883
+Gesamtzeit seit beginn: 0 Stunden, 30 Minute, 51 Sekunden, 0.0 Millisekunden, 213.0 Mikrosekunden, 422.0600128173828 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 6 Sekunden, 0.0 Millisekunden, 145.0 Mikrosekunden, 527.6012420654297 Nanosekunden
+
+### 2 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 19643, 'tn': 549289, 'tp': 5406}
+TP: 5406, FP: 0, TN: 549289, FN: 19643
+Precision: 0.9999999999999815
+Recall: 0.21581699868258128
+F-Score: 0.35501559675293554
+Accuracy: 0.965798884977139
+Gesamtzeit seit beginn: 0 Stunden, 30 Minute, 59 Sekunden, 0.0 Millisekunden, 905.0 Mikrosekunden, 509.2334747314453 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 8 Sekunden, 0.0 Millisekunden, 676.0 Mikrosekunden, 125.76484680175781 Nanosekunden
+Gesamtzeit seit beginn: 0 Stunden, 31 Minute, 0 Sekunden, 0.0 Millisekunden, 105.0 Mikrosekunden, 823.516845703125 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 0 Sekunden, 0.0 Millisekunden, 216.0 Mikrosekunden, 466.4268493652344 Nanosekunden

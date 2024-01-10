@@ -93,7 +93,7 @@ class ThreaTracePipeline():
         self.config = config
         self.train_data = train_data
         self.test_data = test_data
-        self.train_thre = 1.5
+        self.train_thre = 1.0
         self.test_thre = 2.0
         self.num_neighbor = -1
         self.shuffle = False
@@ -163,8 +163,8 @@ class ThreaTracePipeline():
         #device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') # -> at the moment we use cpu
 
         device = torch.device('cpu')
-        #train_net = GCNNet 
-        train_net = SAGENet
+        train_net = GCNNet 
+        #train_net = SAGENet
         #train_net = GATNet
         train_feature_num = data.x.shape[1]
         train_label_num = len(data.y.unique())
@@ -359,6 +359,8 @@ class ThreaTracePipeline():
         Args:
             self (Self): _description_
         """
+        count_train_data = len(self.train_data.x)
+        count_train_data_01_percent = count_train_data * 0.01
         self.patricks_log.write_to_file('Model - false_classified - true_classified')
         while (1): # stops if 3 models have 0 true classified, or if acc = 1 
             print("New Round")
@@ -443,10 +445,14 @@ class ThreaTracePipeline():
                 # writer.add_scalars('loss train', {"loss"+str(loop_num): loss}, epoch)   # new line
                 #show(epoch, loss, acc)
                 if loss < 1: break
-            if acc == 1: break 
+            if acc == 1: break
+            
+            if len(false_classified) <= count_train_data_01_percent:
+             #   print(len(false_classified), count_train_data_01_percent)
+                break 
         
         self.patricks_log.get_total_model_size()
-        
+
     show('Finish training graph')
 
     def test_model_performance(self, gt: List[int], max_runs: int=100):
