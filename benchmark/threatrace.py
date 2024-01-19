@@ -93,7 +93,7 @@ class ThreaTracePipeline():
         self.config = config
         self.train_data = train_data
         self.test_data = test_data
-        self.train_thre = 1.0
+        self.train_thre = 1.5
         self.test_thre = 2.0
         self.num_neighbor = -1
         self.shuffle = False

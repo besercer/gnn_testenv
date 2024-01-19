@@ -8112,3 +8112,24 @@
 2024-01-10 22:06:57,725 - INFO - Establishing connection
 2024-01-10 22:06:57,744 - INFO - Connection established
 2024-01-10 22:06:57,747 - INFO - Table exists. Skipping function.
+2024-01-16 15:51:20,157 - INFO - This will get logged to a file
+2024-01-16 15:51:20,847 - INFO - Files exists. Skipping function.
+2024-01-16 15:51:21,019 - INFO - Establishing connection
+2024-01-16 15:51:21,105 - INFO - Connection established
+2024-01-16 15:51:21,105 - INFO - Table exists. Skipping function.
+2024-01-16 22:06:52,257 - INFO - This will get logged to a file
+2024-01-16 22:06:52,925 - INFO - Files exists. Skipping function.
+2024-01-16 22:06:53,121 - INFO - Establishing connection
+2024-01-16 22:06:53,152 - INFO - Connection established
+2024-01-16 22:06:53,152 - INFO - Table exists. Skipping function.
+2024-01-16 23:28:23,075 - INFO - This will get logged to a file
+2024-01-16 23:29:06,908 - INFO - Files exists. Skipping function.
+2024-01-16 23:29:09,213 - INFO - Establishing connection
+2024-01-16 23:29:09,247 - INFO - Connection established
+2024-01-16 23:29:09,250 - INFO - Table exists. Skipping function.
+2024-01-17 20:17:27,470 - INFO - This will get logged to a file
+2024-01-17 20:18:18,082 - INFO - This will get logged to a file
+2024-01-17 20:18:27,715 - INFO - Files exists. Skipping function.
+2024-01-17 20:18:29,992 - INFO - Establishing connection
+2024-01-17 20:18:30,006 - INFO - Connection established
+2024-01-17 20:18:30,006 - INFO - Table exists. Skipping function.

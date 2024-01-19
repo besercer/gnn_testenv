@@ -1,0 +1,162 @@
+Experiment date: 2024_01_18__01_29_38sagegcngat_0
+Current project directory: c:\Users\patri\Desktop\gnn_testenv\notebooks
+Test/Train split: 20
+----------
+Data_train size of x / features: [154960, 56]
+Data_train size of edge_index: [2, 1738773]
+Data_train size of y: [154960]
+Data_train distribution of y: [67717  8533 74229  2403  2039    39]
+Data_train size of train_mask / test_mask: [154960][154960]
+
+Data_test size of x / features: [574338, 56]
+Data_test size of edge_index: [2, 7375768]
+Data_test size of y: [574338]
+Data_test distribution of y: [133448  43080 374521  12657  10510    122]
+Data_test size of train_mask / test_mask: [574338][574338]
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 16 Sekunden, 0.0 Millisekunden, 269.0 Mikrosekunden, 917.0112609863281 Nanosekunden
+----------
+train_thre: 1.5
+test_thre: 2.0
+hop: 2
+init_epochs: 30
+submodel_max_epochs: 150
+test_cnt_thre: 3
+hidden_layer: 32
+train_model: GCNNet
+test_model: GCNNet
+
+optimizer: Adam
+optimizer_lr: 0.001
+optimizer_betas: (0.9, 0.999)
+optimizer_eps: 1e-08
+optimizer_weight_decay: 0.0005
+optimizer_amsgrad: False
+optimizer_maximize: False
+optimizer_foreach: None
+optimizer_capturable: False
+optimizer_differentiable: False
+optimizer_fused: None
+----------
+Gesamtzeit seit beginn: 0 Stunden, 0 Minute, 26 Sekunden, 0.0 Millisekunden, 355.0 Mikrosekunden, 41.50390625 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 10 Sekunden, 0.0 Millisekunden, 76.0 Mikrosekunden, 693.2964324951172 Nanosekunden
+
+### OWN EVALUATION ### - Jedes Model mit dem Test Datensatz testen
+Model_num: 0  Accuracy:0.0155  false_classified:565425  true_classified:8913
+  false classified Verteilung: [133448  42765 374521   4157  10509     25]
+  true classified Verteilung: [   0  315    0 8500    1   97]
+  Unique Count of pred: (tensor([False,  True]), tensor([  8913, 565425]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 8116, 'fp': 5, 'tn': 549284, 'tp': 16933}
+  Precision: 0.9997048057621857
+  Recall: 0.6759950497025803
+  F-Score: 0.806582989924949
+  Accuracy: 0.9858602425749298
+  
+Model_num: 1  Accuracy:0.0155  false_classified:565425  true_classified:8913
+  false classified Verteilung: [133448  42765 374521   4157  10509     25]
+  true classified Verteilung: [   0  315    0 8500    1   97]
+  Unique Count of pred: (tensor([False,  True]), tensor([  8913, 565425]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 8116, 'fp': 5, 'tn': 549284, 'tp': 16933}
+  Precision: 0.9997048057621857
+  Recall: 0.6759950497025803
+  F-Score: 0.806582989924949
+  Accuracy: 0.9858602425749298
+  
+Model_num: 2  Accuracy:0.2275  false_classified:443670  true_classified:130668
+  false classified Verteilung: [ 26491  22733 374405  12650   7269    122]
+  true classified Verteilung: [106957  20347    116      7   3241]
+  Unique Count of pred: (tensor([False,  True]), tensor([139581, 434757]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 21070, 'fp': 2, 'tn': 549287, 'tp': 3979}
+  Precision: 0.9994976136648832
+  Recall: 0.15884865663299869
+  F-Score: 0.2741302101037868
+  Accuracy: 0.9633108030462898
+  
+Model_num: 3  Accuracy:0.7148  false_classified:163796  true_classified:410542
+  false classified Verteilung: [64726 42179 33621 12639 10509   122]
+  true classified Verteilung: [ 68722    901 340900     18      1]
+  Unique Count of pred: (tensor([False,  True]), tensor([505334,  69004]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 21123, 'fp': 1, 'tn': 549288, 'tp': 3926}
+  Precision: 0.9997453526865037
+  Recall: 0.1567328037047381
+  F-Score: 0.2709828823619888
+  Accuracy: 0.963220264025713
+  
+Model_num: 4  Accuracy:0.6156  false_classified:220768  true_classified:353570
+  false classified Verteilung: [129614  40952  26943  12630  10507    122]
+  true classified Verteilung: [  3834   2128 347578     27      3]
+  Unique Count of pred: (tensor([False,  True]), tensor([513176,  61162]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 21144, 'fp': 1, 'tn': 549288, 'tp': 3905}
+  Precision: 0.9997439836149258
+  Recall: 0.15589444688410653
+  F-Score: 0.2697288896330212
+  Accuracy: 0.9631837001904802
+  
+Model_num: 5  Accuracy:0.6187  false_classified:218997  true_classified:355341
+  false classified Verteilung: [127723  41515  26496  12634  10507    122]
+  true classified Verteilung: [  5725   1565 348025     23      3]
+  Unique Count of pred: (tensor([False,  True]), tensor([513542,  60796]))
+  {'tn': 574338}
+  {'fn': 25049, 'tn': 549289}
+  {'fn': 21149, 'fp': 1, 'tn': 549288, 'tp': 3900}
+  Precision: 0.99974365547293
+  Recall: 0.1556948381172895
+  F-Score: 0.2694300517901512
+  Accuracy: 0.9631749945154248
+  
+Unique Count of data_flow.y: (tensor([0, 1, 2, 3, 4, 5]), tensor([133448,  43080, 374521,  12657,  10510,    122]))
+Gesamtzeit seit beginn: 0 Stunden, 14 Minute, 13 Sekunden, 0.0 Millisekunden, 86.0 Mikrosekunden, 286.5447998046875 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 13 Minute, 46 Sekunden, 0.0 Millisekunden, 730.0 Mikrosekunden, 579.6146392822266 Nanosekunden
+
+### 0 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 21149, 'fp': 1, 'tn': 549288, 'tp': 3900}
+TP: 3900, FP: 1, TN: 549288, FN: 21149
+Precision: 0.99974365547293
+Recall: 0.1556948381172895
+F-Score: 0.2694300517901512
+Accuracy: 0.9631749945154248
+Gesamtzeit seit beginn: 0 Stunden, 14 Minute, 32 Sekunden, 0.0 Millisekunden, 705.0 Mikrosekunden, 322.02720642089844 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 19 Sekunden, 0.0 Millisekunden, 610.0 Mikrosekunden, 485.7921600341797 Nanosekunden
+
+### 1 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 1470, 'fp': 1, 'tn': 549288, 'tp': 23579}
+TP: 23579, FP: 1, TN: 549288, FN: 1470
+Precision: 0.9999575911789611
+Recall: 0.9413150225557869
+F-Score: 0.9697505603152559
+Accuracy: 0.9974387903986851
+Gesamtzeit seit beginn: 0 Stunden, 39 Minute, 58 Sekunden, 0.0 Millisekunden, 363.0 Mikrosekunden, 829.6127319335938 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 25 Minute, 25 Sekunden, 0.0 Millisekunden, 643.0 Mikrosekunden, 340.3491973876953 Nanosekunden
+
+### 2 HOP ###
+Start
+{'tn': 574338}
+set every node in gt to fn
+{'fn': 25049, 'tn': 549289}
+{'fn': 1, 'fp': 1, 'tn': 549288, 'tp': 25048}
+TP: 25048, FP: 1, TN: 549288, FN: 1
+Precision: 0.9999600782466327
+Recall: 0.9999600782466327
+F-Score: 0.9999600781966327
+Accuracy: 0.9999965177299778
+Gesamtzeit seit beginn: 2 Stunden, 35 Minute, 18 Sekunden, 0.0 Millisekunden, 578.0 Mikrosekunden, 799.2477416992188 Nanosekunden
+Zeit seit letztem Check: 1 Stunden, 55 Minute, 20 Sekunden, 0.0 Millisekunden, 213.0 Mikrosekunden, 890.07568359375 Nanosekunden
+Gesamtzeit seit beginn: 2 Stunden, 35 Minute, 18 Sekunden, 0.0 Millisekunden, 812.0 Mikrosekunden, 270.6413269042969 Nanosekunden
+Zeit seit letztem Check: 0 Stunden, 0 Minute, 0 Sekunden, 0.0 Millisekunden, 217.0 Mikrosekunden, 859.0297698974609 Nanosekunden
